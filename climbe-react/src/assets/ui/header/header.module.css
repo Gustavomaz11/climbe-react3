@@ -1,0 +1,119 @@
+.backImage {
+    position: relative;
+    background-image: url('/hero/hero4.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.backImage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.backImage > :global(*) {
+    position: relative;
+    z-index: 2;
+}
+
+.btn_section {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.hero_content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-left: 16rem;
+    color: var(--white-color);
+    justify-content: center;
+    height: 70%;
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero_subtitle {
+    font-size: 1.125rem;
+    font-weight: 500;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero_title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.hero_description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    opacity: 0.95;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero_content {
+        margin-left: 8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_container {
+        height: 100vh;
+    }
+
+    .hero_content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        gap: 1.25rem;
+        height: 60%;
+    }
+
+    .hero_subtitle {
+        font-size: 1rem;
+    }
+
+    .hero_title {
+        font-size: 2rem;
+    }
+
+    .hero_description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero_content {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .hero_title {
+        font-size: 1.75rem;
+    }
+}

@@ -1,0 +1,40 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section_title h2 {
+    font-size: 36px;
+}
+
+.section_title p {
+    padding: 0.7rem;
+    font-size: 18px;
+    width: 75%;
+    text-align: center  ;
+}
+
+.about_us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about_us p {
+    text-align: center;
+    width: 75%;
+}
+
+.wrapper_about_section {
+    display: flex;
+    padding: 4.5rem;
+}

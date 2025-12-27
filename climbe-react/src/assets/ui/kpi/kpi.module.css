@@ -1,0 +1,33 @@
+.kpi {
+    padding: 5.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--grey-color);
+}
+
+.kpi_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.kpi_item h2 {
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.kpi_item p {
+    font-weight: 500;
+}
+
+.signal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signal_content span {
+    font-size: 1.4rem;
+}

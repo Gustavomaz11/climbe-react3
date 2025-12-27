@@ -1,0 +1,16 @@
+@import url('./assets/styles/fonts.css');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Avenir', sans-serif;
+}
+
+:root {
+  --primary-color: #39c6bb;
+  --primary-gradient: linear-gradient(180deg, #39c6bb 0, #1c867d 64%, #39c6bb 100%);
+  --secondary-color: #222;
+  --white-color: #f0f0f0;
+  --grey-color:#f9f9f9;
+}
