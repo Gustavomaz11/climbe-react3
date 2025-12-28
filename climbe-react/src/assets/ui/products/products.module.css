@@ -1,13 +1,13 @@
 .products {
     background-color: white;
-    padding: 64px 16px;
+    padding: 64px 12px;
 }
 
 
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 48px;
+    gap: 36px;
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -16,7 +16,7 @@
 .product_item {
     display: flex;
     align-items: flex-start;
-    gap: 24px;
+    gap: 18px;
     opacity: 0;
     transform: translateY(30px);
 }
@@ -35,7 +35,7 @@
 
 .icon_wrapper {
     flex-shrink: 0;
-    padding-top: 4px;
+    padding-top: 3px;
 }
 
 .icon {
@@ -76,7 +76,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #1f2937;
-    margin-bottom: 12px;
+    margin-bottom: 9px;
     min-height: 64px; 
 }
 
@@ -100,7 +100,7 @@
     }
 
     .product_item {
-        gap: 16px;
+        gap: 12px;
     }
 
     .icon {
