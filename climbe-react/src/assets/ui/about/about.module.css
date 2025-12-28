@@ -16,7 +16,7 @@
 }
 
 .section_title p {
-    padding: 0.7rem;
+    padding: 11.2px;
     font-size: 18px;
     width: 75%;
     text-align: center  ;
@@ -36,5 +36,5 @@
 
 .wrapper_about_section {
     display: flex;
-    padding: 4.5rem;
+    padding: 72px;
 }

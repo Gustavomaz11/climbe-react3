@@ -31,8 +31,8 @@
 .hero_content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-left: 16rem;
+    gap: 24px;
+    margin-left: 256px;
     color: var(--white-color);
     justify-content: center;
     height: 70%;
@@ -61,7 +61,7 @@
     font-weight: 400;
     opacity: 0.95;
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 
@@ -78,7 +78,7 @@
 
 @media (max-width: 1200px) {
     .hero_content {
-        margin-left: 8rem;
+        margin-left: 128px;
     }
 }
 
@@ -88,9 +88,9 @@
     }
 
     .hero_content {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        gap: 1.25rem;
+        margin-left: 32px;
+        margin-right: 32px;
+        gap: 20px;
         height: 60%;
     }
 
@@ -109,8 +109,8 @@
 
 @media (max-width: 480px) {
     .hero_content {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
+        margin-left: 24px;
+        margin-right: 24px;
     }
 
     .hero_title {
