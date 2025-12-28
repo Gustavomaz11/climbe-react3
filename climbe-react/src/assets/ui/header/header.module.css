@@ -41,7 +41,7 @@
 }
 
 .hero_subtitle {
-    font-size: 1.125rem;
+    font-size: 18px;
     font-weight: 500;
     opacity: 0.9;
     letter-spacing: 0.5px;
@@ -49,7 +49,7 @@
 }
 
 .hero_title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(40px, 5vw, 72px);
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
@@ -57,7 +57,7 @@
 }
 
 .hero_description {
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: 400;
     opacity: 0.95;
     line-height: 1.6;
@@ -95,15 +95,15 @@
     }
 
     .hero_subtitle {
-        font-size: 1rem;
+        font-size: 16px;
     }
 
     .hero_title {
-        font-size: 2rem;
+        font-size: 32px;
     }
 
     .hero_description {
-        font-size: 1rem;
+        font-size: 16px;
     }
 }
 
@@ -114,6 +114,6 @@
     }
 
     .hero_title {
-        font-size: 1.75rem;
+        font-size: 28px;
     }
 }

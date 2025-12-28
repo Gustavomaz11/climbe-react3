@@ -21,7 +21,7 @@ ul {
 li {
   position: relative;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 20.8px;
   font-weight: bold;
   transition: 0.3s ease-in;
   color: var(--white-color);
@@ -34,7 +34,7 @@ li span {
 }
 
 .arrow {
-  font-size: 0.7rem;
+  font-size: 11.2px;
   transition: transform 0.3s ease;
 }
 
@@ -81,7 +81,7 @@ li span {
   color: var(--secondary-color) !important;
   width: 100%;
   height: 100% !important;
-  font-size: 1.1rem;
+  font-size: 17.6px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;

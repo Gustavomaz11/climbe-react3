@@ -39,7 +39,7 @@
 }
 
 .icon {
-    font-size: 3rem;
+    font-size: 48px;
     transition: transform 0.3s ease;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .product_title {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     color: #1f2937;
     margin-bottom: 0.75rem;
@@ -81,7 +81,7 @@
 }
 
 .product_text {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.7;
     color: #4b5563;
     text-align: justify;
@@ -104,6 +104,6 @@
     }
 
     .icon {
-        font-size: 2.5rem;
+        font-size: 40px;
     }
 }
