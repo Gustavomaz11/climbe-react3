@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "member": "Anderson Sales",
+        "position": "Sócio Fundador",
+        "path_photo": "/colaboradores/andersonSales.png",
+        "experience": [
+            {"id": 1, "item": "Gestor, Analista e Consultor Credenciado CVM"},
+            {"id": 2, "item": "Certificado CGA, CGE, e CNPI Pleno"},
+            {"id": 3, "item": "Graduado em Matemática"},
+            {"id": 4, "item": "Pós Graduado em Gestão de Cooperativas de Crédito"},
+            {"id": 5, "item": "Pós Graduado em Gestão Fiscal e Planejamento Tributário"}
+        ]
+    },
+    {
+        "id": 2,
+        "member": "Felipe Trindade",
+        "position": "CEO Climbe",
+        "path_photo": "/colaboradores/felipeTrindade.png",
+        "experience": [
+            {"id": 1, "item": "Formado em Economia - Universidade Federal de Sergipe (UFS)"},
+            {"id": 2, "item": "MBA em Finanças pela Fundação Getúlio Vargas (FGV)"},
+            {"id": 3, "item": "Atua há 9 anos no Mercado Financeiro"}
+        ]
+    },
+    {
+        "id": 3,
+        "member": "Josué Lopes",
+        "position": "Analista CNPI",
+        "path_photo": "/colaboradores/josueLopes.png",
+        "experience": [
+            {"id": 1, "item": "Formado em Engenharia de Materiais - Univesidade Federal de Sergipe (UFS)"},
+            {"id": 2, "item": "Inscrição ativa na APIMEC como Analista de Valores Mobiliários"}
+        ]
+    },
+    {
+        "id": 4,
+        "member": "Tamires Cavalcante",
+        "position": "Contadora",
+        "path_photo": "/colaboradores/tamiresCavalcante.png",
+        "experience": [
+            {"id": 1, "item": "Formada em Ciências Contábeis - Universidade Tiradentes (UNIT)"},
+            {"id": 2, "item": "Pós Graduação em Finanças Corporativas, Auditoria e Controladoria - Universidade Tiradentes (UNIT)"},
+            {"id": 3, "item": "Gestora Contábil na Evoluti Contabilidade (2020 - Atual)"},
+            {"id": 4, "item": "Analista Contábil na MCE Contabilidade Empresarial (2017 - 2019)"}
+        ]
+    },
+    {
+        "id": 5,
+        "member": "Allan Lima",
+        "position": "Consultor Comercial",
+        "path_photo": "/colaboradores/allanLima.png",
+        "experience": [
+            {"id": 1, "item": "Engenheiro Civil com experiência em orçamento e controle de projetos"},
+            {"id": 2, "item": "Sócio atuante em operações comerciais, prospecção de novos negócios e em Desenvolvimento Imobiliário na Climbe Holding"},
+            {"id": 3, "item": "Trader desde 2018, especialista em operação swing trade e desenvolvimento de sistemas de negociação"}
+        ]
+    },
+    {
+        "id": 6,
+        "member": "Davi Marques",
+        "position": "Compliance",
+        "path_photo": "/colaboradores/daviMarques.png",
+        "experience": [
+            {"id": 1, "item": "Advogado Especializado em Direito Médico e Empresarial"},
+            {"id": 2, "item": "Sócio Proprietário do Escritório Longo & Marques Advogados Associados"},
+            {"id": 3, "item": "Agente Autônomo de Investimentos (Habilitado pela ANCORD)"},
+            {"id": 4, "item": "Sócio Proprietário na Empoderar Consultoria & Gestão"},
+            {"id": 5, "item": "Sócio na Climbe Holding"}
+        ]
+    },
+    {
+        "id": 7,
+        "member": "Marcio Souza",
+        "position": "Consultor Comercial",
+        "path_photo": "/colaboradores/marcioSouza.png",
+        "experience": [
+            {"id": 1, "item": "Formado em Segurança Pública - Universidade UNOPAR"},
+            {"id": 3, "item": "MBA em Finanças Corporativas - Galícia Educação"},
+            {"id": 4, "item": "Consultor Financeiro Empresarial - Impactus Consultorias (2020 - Atual)"},
+            {"id": 5, "item": "Administrador - Impactus Consultorias (2021 - 2024)"}
+        ]
+    },
+    {
+        "id": 8,
+        "member": "Vítor Alcântara Machado Cardoso",
+        "position": "Analista CNPI",
+        "path_photo": "/colaboradores/vitorCardoso.png",
+        "experience": [
+            {"id": 1, "item": "Formado em Engenharia Mecatrônica - Universidade Tiradentes (UNIT)"},
+            {"id": 2, "item": "Pós Graduação em Finanças, Investimentos e Banking - Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)"},
+            {"id": 3, "item": "Analista de Valores Mobiliários vinculado à APIMEC"},
+            {"id": 4, "item": "Analista e Backup do Diretor de Gestão da Viggo Asset Management (2024 - Atual)"},
+            {"id": 5, "item": "Analista de Valores Mobiliários na Climbe Investimentos: Educação, Consultoria e Análise LTDA (2021 - 2024)"},
+            {"id": 6, "item": "Adjunto de Distribuição e Gestão da BMR Asset Management (2021 - 2024)"}
+        ]
+    }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "client": "Marcos",
+    "path_photo": "/clientes/marcos.jpeg",
+    "position": "Médico Veterinário",
+    "testimonial": "A Climbe esta me ajudando a construir um patrimônio financeiro que proverá minha independência financeira no futuro. Tudo com independência e trânsparencia. Recomendo."
+  },
+  {
+    "id": 2,
+    "client": "Demilton",
+    "path_photo": "/clientes/demilton.jpeg",
+    "position": "Diretor e Cinegrafista",
+    "testimonial": "Sempre investi, porém seguindo os bancos tradicionais e as orientações dos gerentes. Hoje eu sinto a segurança de eu mesmo investir nos produtos que mais se adequam ao meu perfil, tudo isso graças à assessoria da climbe investimentos. Obrigado Climbe!"
+  },
+  {
+    "id": 3,
+    "client": "Uri",
+    "path_photo": "/clientes/uri.jpeg",
+    "position": "Janno Legado",
+    "testimonial": "A Climbe tem sido uma ótima parceira para mim e para a minha empresa. Super receptivos desde o início e com uma proposta muito bacana! Tenho certeza que terá muita coisa boa pela frente."
+  },
+  {
+    "id": 4,
+    "client": "Daniela",
+    "path_photo": "/clientes/daniela.jpeg",
+    "position": "Advogada",
+    "testimonial": "Foi na Climbe Investimentos que encontrei o suporte que preciso para construir meu plano de investimentos. Para o profissional liberal é essencial fazer uma reserva, e, sobretudo, saber investir, afim de garantir um futuro tranquilo. Para isso eu conto com a Climbe ao meu lado, me orientando e me capacitando, sempre respeitando o meu perfil."
+  },
+  {
+    "id": 5,
+    "client": "Michel",
+    "path_photo": "/clientes/michel.jpeg",
+    "position": "Servidor Público",
+    "testimonial": "Muito bom fazer parte do grupo de investidores assessorados pela Climbe Investimentos. Durante esse último ano pude testemunhar o empenho de toda a equipe, na construção de um projeto que efetivamente transforma a vida das pessoas, através da educação financeira e do respeito ao perfil dos investimentos, concedendo-lhes segurança financeira e permitindo-lhes o alicerce da realização dos seus sonhos. Muito obrigado mesmo!"
+  }
+]
