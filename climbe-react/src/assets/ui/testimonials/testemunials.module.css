@@ -11,7 +11,7 @@
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  color: white;
+  color:var(--primary-color);
   margin-bottom: 3rem;
 }
 
