@@ -1,0 +1,26 @@
+/* Reset completo para controle total de fontes */
+* {
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Override específico para elementos de texto */
+h1, h2, h3, h4, h5, h6, p, span, div, button, li, a {
+  font-size: inherit !important;
+}
+
+/* Força font sizes específicos */
+._hero_title_nq7j8_101 { font-size: clamp(40px, 5vw, 72px) !important; }
+._hero_subtitle_nq7j8_85 { font-size: 18px !important; }
+._hero_description_nq7j8_117 { font-size: 20px !important; }
+._kpi_item_1ffl3_17 h2 { font-size: 60px !important; }
+._section_title_1pz6h_15 h2 { font-size: 36px !important; }
+._product_title_1we3k_149 { font-size: 24px !important; }
+._product_text_1we3k_165 { font-size: 16px !important; }
+._icon_1we3k_71 { font-size: 48px !important; }
+li { font-size: 20.8px !important; }
+button { font-size: 16px !important; }
