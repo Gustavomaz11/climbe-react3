@@ -7,7 +7,7 @@ const Kpi = () => {
 
   const [numbers, setNumbers] = useState([
     { id: 1, value: 0, target: 90, title: "NPS" },
-    { id: 2, value: 0, target: 200, title: "Clientes PJ", signal: "+" },
+    { id: 2, value: 0, target: 150, title: "Clientes PJ", signal: "+" },
     { id: 3, value: 0, target: 400, title: "Em Empresas Avaliadas", signal: "+R$", lastSignal: "M" }
   ])
 
