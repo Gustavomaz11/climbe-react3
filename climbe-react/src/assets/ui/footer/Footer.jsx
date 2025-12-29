@@ -51,7 +51,7 @@ const Footer = () => {
                 </section>
                 
                 <section className={styles.documents_content}>
-                    <h4>Documentos</h4>
+                    <h4>Conteúdo</h4>
                     {document && document.map((item) => (
                         <span key={item.id}>{item.document}</span>
                     ))}
