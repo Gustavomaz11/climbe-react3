@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
 
             <div className={styles.credoras}>
-                <h2>Nossas empresas seguem a legislação das seguintes entidades reguladoras e autorreguladoras do mercado:</h2>
+                <h2>Nossa empresa segue a legislação das seguintes entidades reguladoras e autorreguladoras do mercado:</h2>
                 <div className={styles.credoras_content}>
                     <img onClick={() => openLink('https://www.apimecbrasil.com.br/autorregulacao/analistas-de-valores-mobiliarios-pessoa-juridica/')} src={hoverApimec ? "/credoras/apimec.png" : "/credoras/pretoCinza/apimec.png"} alt="apimec" onMouseEnter={() => setHoverApimec(true)} onMouseLeave={() => setHoverApimec(false)}/>
                     <img onClick={() => openLink("https://www.anbima.com.br/pt_br/institucional/perfil-da-instituicao/instituicao/350da4e3-cda2-406b-b478-939ba6929b0a/perfil/viggo-asset-management-ltda.htm")} src={hoverAnbima ? "/credoras/anbima.png" : "/credoras/pretoCinza/anbima.png"} alt="anbima" onMouseEnter={() => setHoverAnbima(true)} onMouseLeave={() => setHoverAnbima(false)}/>
