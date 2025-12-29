@@ -36,7 +36,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 4rem;
     position: relative;
     z-index: 1;
@@ -69,13 +69,15 @@
 }
 
 .services_content,
-.documents_content {
+.documents_content,
+.news {
     display: flex;
     flex-direction: column;
 }
 
 .services_content h4,
-.documents_content h4 {
+.documents_content h4,
+.news h4 {
     font-size: 1.15rem;
     font-weight: 600;
     margin: 0 0 1.5rem 0;
@@ -88,7 +90,8 @@
 }
 
 .services_content h4::after,
-.documents_content h4::after {
+.documents_content h4::after,
+.news h4::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -138,6 +141,46 @@
     width: 6px;
 }
 
+.news p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 1.5rem 0;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.form_section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form_section input {
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form_section input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form_section input:focus {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.form_section button {
+    width: 100%;
+}
+
 .footer_bottom {
     max-width: 1200px;
     margin: 3rem auto 0;
@@ -168,6 +211,12 @@
         margin: 0 auto;
         text-align: center;
         align-items: center;
+    }
+
+    .news {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
 
@@ -217,6 +266,17 @@
         display: none;
     }
 
+    .news {
+        text-align: center;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .news h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .footer_bottom {
         margin-top: 2rem;
         padding-top: 1.5rem;
@@ -243,7 +303,6 @@
     width: 140px;
     height: auto;
 }
-
 
 .author {
     color: var(--primary-color);

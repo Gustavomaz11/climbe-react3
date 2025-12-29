@@ -1,0 +1,20 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu span {
+    cursor: pointer;
+    background-color: #f4f4f4;
+    padding: 1.2rem;
+    max-width: 400px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.menu span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+

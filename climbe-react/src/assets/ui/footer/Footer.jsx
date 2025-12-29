@@ -2,7 +2,10 @@ import styles from "./footer.module.css"
 import { openLink } from "../../../hooks/useRedirect"
 import { useState } from "react"
 
+import Button from "../../../components/button/Button"
+
 const Footer = () => {
+    const [email, setEmail] = useState("")
     const [hoverApimec, setHoverApimec] = useState(false)
     const [hoverCvm, setHoverCvm] = useState(false)
     const [hoverAnbima, setHoverAnbima] = useState(false)
@@ -21,6 +24,11 @@ const Footer = () => {
         {id: 1, document: "Relatórios", path: "/relatorios"},
         {id: 2, document: "Artigos", path: "/artigos"}
     ])
+
+    const handleSubmit = () => {
+        console.log(email)
+        setEmail("")
+    }
 
     return (
         <footer className={styles.footer}>
@@ -48,14 +56,23 @@ const Footer = () => {
                         <span key={item.id}>{item.document}</span>
                     ))}
                 </section>
+
+                <section className={styles.news}>
+                    <h4>Novidades</h4>
+                    <p>Insira seu e-mail para receber novidades</p>
+                    <div className={styles.form_section}>
+                        <input type="email" value={email} placeholder="Insira o seu e-mail" onChange={(e) => setEmail(e.target.value)}/>
+                        <Button customClass="primary" txt="Cadastrar" onClick={handleSubmit}/>
+                    </div>
+                </section>
             </div>
 
             <div className={styles.credoras}>
                 <h2>Nossas empresas seguem a legislação das seguintes entidades reguladoras e autorreguladoras do mercado:</h2>
                 <div className={styles.credoras_content}>
-                    <img onClick={() => openLink('https://www.apimecbrasil.com.br/')} src={hoverApimec ? "/credoras/apimec.png" : "/credoras/pretoCinza/apimec.png"} alt="apimec" onMouseEnter={() => setHoverApimec(true)} onMouseLeave={() => setHoverApimec(false)}/>
-                    <img onClick={() => openLink("https://www.anbima.com.br/pt_br/pagina-inicial.htm")} src={hoverAnbima ? "/credoras/anbima.png" : "/credoras/pretoCinza/anbima.png"} alt="anbima" onMouseEnter={() => setHoverAnbima(true)} onMouseLeave={() => setHoverAnbima(false)}/>
-                    <img onClick={() => openLink("https://www.gov.br/cvm/pt-br")} src={hoverCvm ? "/credoras/cvm.png" : "/credoras/pretoCinza/cvm.png"} alt="cvm" onMouseEnter={() => setHoverCvm(true)} onMouseLeave={() => setHoverCvm(false)}/>
+                    <img onClick={() => openLink('https://www.apimecbrasil.com.br/autorregulacao/analistas-de-valores-mobiliarios-pessoa-juridica/')} src={hoverApimec ? "/credoras/apimec.png" : "/credoras/pretoCinza/apimec.png"} alt="apimec" onMouseEnter={() => setHoverApimec(true)} onMouseLeave={() => setHoverApimec(false)}/>
+                    <img onClick={() => openLink("https://www.anbima.com.br/pt_br/institucional/perfil-da-instituicao/instituicao/350da4e3-cda2-406b-b478-939ba6929b0a/perfil/viggo-asset-management-ltda.htm")} src={hoverAnbima ? "/credoras/anbima.png" : "/credoras/pretoCinza/anbima.png"} alt="anbima" onMouseEnter={() => setHoverAnbima(true)} onMouseLeave={() => setHoverAnbima(false)}/>
+                    <img onClick={() => openLink("https://sistemas.cvm.gov.br/")} src={hoverCvm ? "/credoras/cvm.png" : "/credoras/pretoCinza/cvm.png"} alt="cvm" onMouseEnter={() => setHoverCvm(true)} onMouseLeave={() => setHoverCvm(false)}/>
                     <img onClick={() => openLink("https://crcse.org.br/")} src={hoverCrcse ? "/credoras/crcse.png" : "/credoras/pretoCinza/crcse.png"} alt="crcse" onMouseEnter={() => setHoverCrcse(true)} onMouseLeave={() => setHoverCrcse(false)}/>
                     <img onClick={() => openLink("https://online.crcsp.org.br/portal/index.asp")} src={hoverCrcsp ? "/credoras/crcsp.png" : "/credoras/pretoCinza/crcsp.png"} alt="crcsp" onMouseEnter={() => setHoverCrcsp(true)} onMouseLeave={() => setHoverCrcsp(false)}/>
                 </div>

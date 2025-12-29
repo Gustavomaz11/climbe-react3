@@ -1,0 +1,21 @@
+.breadcrumb {
+  background-color: #9b9b9b;
+  padding: 40px 0;
+}
+
+.breadcrumb_content {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 12px;
+}
+
+.breadcrumb_line {
+  display: flex;
+  justify-content: center;
+}
+
+.breadcrumb_line ol {
+  margin: 0;
+  background: transparent;
+}

@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./nav.module.css";
 
 const Nav = () => {
+
+  const navigate = useNavigate()
   const [menu] = useState([
     { id: 1, nome: "Relatórios", route: "/relatorios" },
     { id: 2, nome: "Artigos", route: "/artigos" },
@@ -36,7 +39,7 @@ const Nav = () => {
 
   return (
     <nav className={styles.nav}>
-      <img src="/logo/logo.png" alt="logo-climbe" className={styles.logo} />
+      <img src="/logo/logo.png" alt="logo-climbe" className={styles.logo} onClick={() => navigate('/')}/>
 
       <ul className={styles.ul}>
         {menu.map((item) => (
@@ -64,7 +67,7 @@ const Nav = () => {
                   <li
                     key={child.id}
                     className={styles.dropdownItem}
-                    onClick={() => console.log(child.route)}
+                    onClick={() => navigate(child.route)}
                   >
                     {child.nome}
                   </li>
