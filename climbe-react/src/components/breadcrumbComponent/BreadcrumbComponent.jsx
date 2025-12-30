@@ -5,7 +5,7 @@ import Nav from "../nav/Nav";
 
 const BreadcrumbComponent = () => {
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter(Boolean);
+  const pathnames = location.pathname.split("/").filter(Boolean).filter(path => path !== "servicos");
   const lastPath = pathnames[pathnames.length - 1];
 
   const handlePath = (path) => {
@@ -14,7 +14,8 @@ const BreadcrumbComponent = () => {
       bpo: "Terceirização de Rotinas Financeiras (BPO)",
       cfo: "Diretoria Financeira Sob Demanda (CFO)",
       mea: "Fusões e Aquisições (M&A)",
-      contabilidade: "Contabilidade"
+      contabilidade: "Contabilidade",
+      ri: "Relação com Investidores"
     };
     return paths[path] || path;
   };
@@ -30,7 +31,7 @@ const BreadcrumbComponent = () => {
 
         <Breadcrumb className={styles.breadcrumb_line}>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
-            <span className={styles.breadcrumb_item}>Home</span>
+            <span className={styles.breadcrumb_item}>Início</span>
           </Breadcrumb.Item>
 
           {pathnames.map((name, index) => {
@@ -40,7 +41,7 @@ const BreadcrumbComponent = () => {
             return isLast ? (
               <Breadcrumb.Item active key={routeTo}>
                 <span className={styles.breadcrumb_item_active}>
-                  {decodeURIComponent(name)}
+                  {handlePath(decodeURIComponent(name))}
                 </span>
               </Breadcrumb.Item>
             ) : (
@@ -50,7 +51,7 @@ const BreadcrumbComponent = () => {
                 linkProps={{ to: routeTo }}
               >
                 <span className={styles.breadcrumb_item}>
-                  {decodeURIComponent(name)}
+                  {handlePath(decodeURIComponent(name))}
                 </span>
               </Breadcrumb.Item>
             );

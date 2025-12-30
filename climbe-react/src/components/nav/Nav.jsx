@@ -51,7 +51,7 @@ const Nav = () => {
           >
             <span
               className={styles.span}
-              onClick={() => !item.children && console.log(item.route)}
+              onClick={() => !item.children && navigate(item.route)}
             >
               {item.nome}
               {item.children && <span className={styles.arrow}>▼</span>}
