@@ -29,6 +29,7 @@ const Valuation = () => {
     {
       id: "abordagem",
       label: "Nossa Abordagem",
+      active: true,
       content: "Análise profunda da empresa, combinando dados financeiros históricos, projeções futuras e contexto de mercado, garantindo um valuation alinhado à realidade do negócio."
     },
     {
@@ -39,7 +40,6 @@ const Valuation = () => {
     {
       id: "advisory",
       label: "Assessoria (Advisory)",
-      active: true,
       content: "Acompanhamos o cliente durante todo o processo, explicando premissas, cenários e impactos estratégicos do valuation, indo além do relatório técnico."
     }
   ]

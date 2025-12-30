@@ -57,7 +57,7 @@ li span {
   min-width: 280px;
   padding: 2.6px 0;
   margin-top: 24px;
-  z-index: 1000;
+  z-index: 10000 !important;
   display: flex;
   flex-direction: column;
   /* Animação de entrada */
@@ -86,6 +86,7 @@ li span {
   cursor: pointer;
   transition: background-color 0.2s ease;
   white-space: nowrap;
+  z-index: 100000;
 }
 
 .dropdownItem:hover {

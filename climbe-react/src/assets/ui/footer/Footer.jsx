@@ -1,10 +1,13 @@
 import styles from "./footer.module.css"
 import { openLink } from "../../../hooks/useRedirect"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import Button from "../../../components/button/Button"
 
+
 const Footer = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [hoverApimec, setHoverApimec] = useState(false)
     const [hoverCvm, setHoverCvm] = useState(false)
@@ -13,11 +16,11 @@ const Footer = () => {
     const [hoverCrcsp, setHoverCrcsp] = useState(false)
 
     const [services] = useState([
-        {id: 1, service: "Avaliação de Empresas (Valuation)", path: "/valuation"},
-        {id: 2, service: "Fusões e Aquisições (M&A)", path: "/mea"},
-        {id: 3, service: "Diretoria Financeira Sob Demanda (CFO)", path: "/cfo"},
-        {id: 4, service: "Avaliação de Empresas (BPO)", path: "/bpo"},
-        {id: 5, service: "Contabilidade", path: "/contabilidade"},
+        {id: 1, service: "Avaliação de Empresas (Valuation)", path: "/servicos/valuation"},
+        {id: 2, service: "Fusões e Aquisições (M&A)", path: "/servicos/mea"},
+        {id: 3, service: "Diretoria Financeira Sob Demanda (CFO)", path: "/servicos/cfo"},
+        {id: 4, service: "Avaliação de Empresas (BPO)", path: "/servicos/bpo"},
+        {id: 5, service: "Contabilidade", path: "/servicos/contabilidade"},
     ])
 
     const [document] = useState([
@@ -46,14 +49,14 @@ const Footer = () => {
                 <section className={styles.services_content}>
                     <h4>Serviços</h4>
                     {services && services.map((item) => (
-                        <span key={item.id}>{item.service}</span>
+                        <span key={item.id} onClick={() => navigate(item.path)}>{item.service}</span>
                     ))}
                 </section>
                 
                 <section className={styles.documents_content}>
                     <h4>Conteúdo</h4>
                     {document && document.map((item) => (
-                        <span key={item.id}>{item.document}</span>
+                        <span key={item.id} onClick={() => navigate(item.path)}>{item.document}</span>
                     ))}
                 </section>
 
