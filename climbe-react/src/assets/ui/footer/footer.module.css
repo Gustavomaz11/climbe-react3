@@ -281,27 +281,51 @@
         margin-top: 2rem;
         padding-top: 1.5rem;
     }
+
+    .credoras_content {
+        gap: 15px;
+    }
+
+    .credoras_content img {
+        width: 100px;
+    }
 }
 
 .credoras { 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     padding: 1rem;
     gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .credoras h2 {
     font-size: 15px;
-    text-align: start;
+    text-align: center;
+    margin-bottom: 1rem;
+    max-width: 800px;
+}
+
+.credoras_content {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row !important;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .credoras_content img {
     cursor: pointer;
-    flex: 1;
     width: 140px;
     height: auto;
+    transition: transform 0.3s ease;
+}
+
+.credoras_content img:hover {
+    transform: scale(1.05);
 }
 
 .author {

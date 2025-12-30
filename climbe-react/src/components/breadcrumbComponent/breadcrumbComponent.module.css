@@ -1,5 +1,5 @@
 .breadcrumb {
-  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  background: var(--secondary-color);
   padding: 0 0 80px;
   position: relative;
   overflow: hidden;
@@ -39,7 +39,8 @@
 
 .breadcrumb_line {
   display: flex;
-  justify-content: center;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .breadcrumb_line ol {
@@ -50,16 +51,25 @@
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex !important;
+  align-items: center !important;
 }
 
 .breadcrumb_line :global(.breadcrumb-item) {
   font-size: 0.95rem;
   font-weight: 500;
+  display: inline-flex !important;
+  align-items: center !important;
 }
 
 .breadcrumb_line :global(.breadcrumb-item + .breadcrumb-item::before) {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
+  content: '/' !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 600 !important;
+  padding: 0 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 
 .breadcrumb_item {
@@ -68,7 +78,9 @@
   transition: all 0.3s ease;
   padding: 4px 8px;
   border-radius: 6px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .breadcrumb_line :global(.breadcrumb-item) a:hover .breadcrumb_item {
@@ -83,7 +95,9 @@
   padding: 4px 8px;
   background: rgba(255, 255, 255, 0.25);
   border-radius: 6px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 /* Responsivo */
