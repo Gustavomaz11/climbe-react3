@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faDownload, faEye, faTimes } from "@fortawesome/free-solid-svg-icons"
 
 const Artigos = () => {
-  const prefix = "http://localhost:3000"
+  const prefix = import.meta.env.VITE_PREFIX_API || "http://localhost:3000"
   const { request, isLoading } = useFetch(prefix)
   
   const [arquivos, setArquivos] = useState([])
