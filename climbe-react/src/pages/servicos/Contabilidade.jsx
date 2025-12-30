@@ -29,6 +29,7 @@ const Contabilidade = () => {
     {
       id: "abordagem",
       label: "Nossa Abordagem",
+      active: true,
       content: "Atuação técnica e organizada, com processos bem definidos, cumprimento rigoroso de prazos e constante atualização frente à legislação contábil e fiscal."
     },
     {
@@ -39,7 +40,6 @@ const Contabilidade = () => {
     {
       id: "advisory",
       label: "Assessoria (Advisory)",
-      active: true,
       content: "Atuamos como parceiros do cliente, esclarecendo dúvidas, orientando decisões e apoiando demandas contábeis, fiscais e societárias de forma contínua."
     }
   ]

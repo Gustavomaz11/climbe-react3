@@ -29,6 +29,7 @@ const Mea = () => {
     {
       id: "abordagem",
       label: "Nossa Abordagem",
+      active: true,
       content: "Visão estratégica do negócio, análise profunda da empresa e do mercado, definição de posicionamento e condução estruturada do processo de M&A."
     },
     {
@@ -39,7 +40,6 @@ const Mea = () => {
     {
       id: "advisory",
       label: "Assessoria (Advisory)",
-      active: true,
       content: "Atuação ativa durante todo o processo, incluindo preparação da empresa, negociação, coordenação de due diligence e suporte até o fechamento."
     }
   ]

@@ -29,6 +29,7 @@ const Cfo = () => {
     {
       id: "abordagem",
       label: "Nossa Abordagem",
+      active: true,
       content: "Atuamos de forma estratégica e prática, estruturando processos financeiros, indicadores de desempenho e rotinas de controle, sempre alinhados aos objetivos da empresa."
     },
     {
@@ -39,7 +40,6 @@ const Cfo = () => {
     {
       id: "advisory",
       label: "Assessoria (Advisory)",
-      active: true,
       content: "Atuamos como parceiros da liderança, traduzindo números em insights claros, orientando decisões e apoiando negociações com bancos, investidores e stakeholders."
     }
   ]

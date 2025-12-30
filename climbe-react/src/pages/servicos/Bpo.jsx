@@ -29,6 +29,7 @@ const Bpo = () => {
     {
       id: "abordagem",
       label: "Nossa Abordagem",
+      active: true,
       content: "Mapeamento dos processos financeiros, definição de rotinas, integração de sistemas e implementação de controles adequados à operação do cliente."
     },
     {
@@ -39,7 +40,6 @@ const Bpo = () => {
     {
       id: "advisory",
       label: "Assessoria (Advisory)",
-      active: true,
       content: "Atuação consultiva contínua, apoiando gestores com análises financeiras, indicadores e recomendações estratégicas."
     }
   ]
