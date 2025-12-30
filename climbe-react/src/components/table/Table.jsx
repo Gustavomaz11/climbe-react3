@@ -23,13 +23,31 @@ const Table = ({
   currentPage = 1,
   totalRecords = null,
   searchable = true,
-  searchPlaceholder = "Buscar..."
+  searchPlaceholder = "Buscar...",
+  searchTerm: externalSearchTerm = null,
+  onSearchChange = null
 }) => {
 
-  const [searchTerm, setSearchTerm] = useState("")
+  const [internalSearchTerm, setInternalSearchTerm] = useState("")
+  
+  // Usar termo externo se fornecido, senão usar interno
+  const searchTerm = externalSearchTerm !== null ? externalSearchTerm : internalSearchTerm
+  
+  const handleSearchChange = (value) => {
+    if (onSearchChange) {
+      onSearchChange(value)
+    } else {
+      setInternalSearchTerm(value)
+    }
+  }
 
-  // Filtrar dados baseado na busca
+  // Filtrar dados baseado na busca (apenas se não houver controle externo)
   const filteredData = useMemo(() => {
+    if (onSearchChange) {
+      // Se há controle externo, retornar dados sem filtrar
+      return data
+    }
+    
     if (!searchable || !searchTerm.trim()) return data
 
     const lowerSearchTerm = searchTerm.toLowerCase()
@@ -44,7 +62,7 @@ const Table = ({
         return String(value).toLowerCase().includes(lowerSearchTerm)
       })
     })
-  }, [data, searchTerm, columns, searchable])
+  }, [data, searchTerm, columns, searchable, onSearchChange])
 
   // Renderizar valor da célula
   const renderCell = (item, column) => {
@@ -67,12 +85,12 @@ const Table = ({
               type="text"
               placeholder={searchPlaceholder}
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className={styles.search_input}
             />
             {searchTerm && (
               <button
-                onClick={() => setSearchTerm("")}
+                onClick={() => handleSearchChange("")}
                 className={styles.search_clear}
                 aria-label="Limpar busca"
               >
