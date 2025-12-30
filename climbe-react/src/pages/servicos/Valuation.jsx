@@ -9,20 +9,20 @@ import {
 const Valuation = () => {
 
   const [check] = useState([
-    {id: 1, title: "Metodologia Profissional de Valuation", text: "Utilizamos métodos consagrados como Fluxo de Caixa Descontado (DCF), Múltiplos de Mercado e Avaliação Patrimonial, sempre adequando a metodologia ao perfil e ao momento da empresa avaliada."},
-    {id: 2, title: "Suporte à Tomada de Decisão", text: "O valuation fornece uma base sólida para decisões estratégicas, como entrada de investidores, venda parcial ou total do negócio, reorganizações societárias e planejamento de crescimento."},
-    {id: 3, title: "Relatórios Claros e Fundamentados", text: "Entregamos relatórios completos, objetivos e bem estruturados, com premissas transparentes, cenários projetados e justificativas técnicas que facilitam a compreensão e a apresentação a terceiros."},
-    {id: 4, title: "Atendimento Especializado e Personalizado", text: "Nossa equipe acompanha todo o processo de avaliação, esclarecendo dúvidas e adaptando a análise às necessidades específicas de cada empresa, sempre com confidencialidade e compromisso técnico."},
+    {id: 1, title: "Metodologia Profissional de Valuation", text: "Utilizamos métodos consagrados como Fluxo de Caixa Descontado (DCF), Múltiplos de Mercado, além de visitarmos in loco a empresa sempre adequando a metodologia ao perfil e ao momento da operação avaliada."},
+    {id: 2, title: "Suporte à Tomada de Decisão", text: "O valuation fornece uma base sólida para decisões estratégicas, como entrada de investidores, venda parcial ou total do negócio, reorganizações societárias e planejamento."},
+    {id: 3, title: "Relatórios Claros e Fundamentados", text: "Entregamos relatórios completos, objetivos e bem estruturados, com premissas transparentes, cenários projetados e justificativas técnicas que facilitam a compreensão. Nosso time é composto por profissionais credenciados à CVM e com contribuição cientifica em nível internacional."},
+    {id: 4, title: "Atendimento Especializado e Personalizado", text: "Nossa equipe multidisciplinar acompanha todo o processo de avaliação, esclarecendo dúvidas e adaptando a análise às necessidades específicas de cada empresa, sempre com confidencialidade e compromisso técnico."},
   ])
 
   const [activeTab, setActiveTab] = useState("advisory")
   const [necessidade] = useState([
     {id: 1, title: "Balanços Patrimoniais e Demonstrativos de resultados do exercício (DRE)", text: "Dos últimos 5 anos de empresa, se houver."},
     {id: 2, title: "Posição atual de eventuais dívidas ou empréstimos bancários contraídos em nome da empresa ", text: "Saldo devedor, número e valor das parcelas, taxa de juros e etc"},
-    {id: 3, title: "Indicadores de saúde financeira", text: "Cotejando com a média do setor em que atuam"},
-    {id: 4, title: "Análise", text: "Macroeconômica do setor"},
-    {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
-    {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
+    {id: 3, title: "Perspectivas Futuras", text: "Planejamento estratégico, preferencialmente."},
+    {id: 4, title: "Estrutua de Governança", text: "Contrato social e acordo de sócios."},
+    // {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
+    // {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
   ])
 
   const tabs = [
@@ -51,15 +51,14 @@ const Valuation = () => {
         <div className={styles.header_content}>
           <div className={styles.text_content}>
             <span className={styles.badge}>Avaliação Estratégica de Empresas</span>
-            <h1 className={styles.title}>Valuation Empresarial com Precisão e Credibilidade</h1>
+            <h1 className={styles.title}>Valuation com Precisão e Credibilidade</h1>
             <p className={styles.description}>
               Realizamos avaliações de empresas com base em metodologias reconhecidas pelo mercado, 
               entregando análises claras, técnicas e confiáveis para apoiar decisões estratégicas, 
               societárias e financeiras.
             </p>
             <p className={styles.description}>
-              Nosso processo considera dados financeiros, operacionais e de mercado, garantindo uma 
-              visão realista do valor do negócio, alinhada aos objetivos dos sócios, investidores e gestores.
+              Nosso processo considera dados financeiros, operacionais e de mercado, garantindo um verdadeiro diagnóstico do negócio, alinhado aos objetivos dos sócios, investidores e gestores.
             </p>
           </div>
           
