@@ -1,6 +1,6 @@
 import Aurora from "../Aurora"
 import { useState, useEffect } from "react"
-import styles from "./FormService.module.css"
+import styles from "./formService.module.css"
 import Button from "../button/Button"
 
 const FormService = () => {
