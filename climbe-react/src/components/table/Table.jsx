@@ -162,7 +162,7 @@ const Table = ({
         </table>
       </div>
 
-      {pagination && serverSidePagination && filteredData.length > 0 && (
+      {pagination && serverSidePagination && (
         <div className={styles.pagination}>
           <div className={styles.pagination_info}>
             {totalRecords ? (

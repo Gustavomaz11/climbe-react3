@@ -190,7 +190,8 @@ const RelatoriosNacionais = () => {
   ]
 
   const displayData = filteredData()
-  const showPagination = !searchTerm && nextPageToken !== null
+  const showPagination = !searchTerm
+
 
   return (
     <div style={{ padding: "40px 24px" }}>

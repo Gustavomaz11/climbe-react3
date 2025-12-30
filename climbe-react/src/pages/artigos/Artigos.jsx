@@ -1,24 +1,27 @@
-// pages/ri/NossoValuation.jsx
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Table from "../../components/table/Table"
 import Modal from "../../components/modal/Modal"
 import { useFetch } from "../../hooks/useFetch"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFilePdf, faDownload, faEye, faTimes } from "@fortawesome/free-solid-svg-icons"
+import { faFilePdf, faDownload, faEye, faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons"
 
 const Artigos = () => {
   const prefix = import.meta.env.VITE_PREFIX_API || "http://localhost:3000"
   const { request, isLoading } = useFetch(prefix)
   
   const [arquivos, setArquivos] = useState([])
+  const [allArquivos, setAllArquivos] = useState([]) 
   const [nextPageToken, setNextPageToken] = useState(null)
   const [pageTokens, setPageTokens] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [isSearching, setIsSearching] = useState(false)
   
-  // Estado para o modal
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedFile, setSelectedFile] = useState(null)
+  const [pdfLoading, setPdfLoading] = useState(true)
 
+  // Buscar dados paginados
   const fetchData = async (pageToken = null) => {
     try {
       const endpoint = pageToken 
@@ -34,12 +37,51 @@ const Artigos = () => {
     }
   }
 
+  const fetchAllData = async () => {
+    try {
+      setIsSearching(true)
+      const result = await request('/api/arquivos/artigos/getAll')
+      setAllArquivos(result.arquivos)
+    } catch (error) {
+      console.error("Erro ao buscar todos os dados:", error)
+    } finally {
+      setIsSearching(false)
+    }
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
 
+  const filteredData = useCallback(() => {
+    if (!searchTerm.trim()) {
+      return arquivos
+    }
+
+    const lowerSearchTerm = searchTerm.toLowerCase()
+    return allArquivos.filter((item) => {
+      return item.name?.toLowerCase().includes(lowerSearchTerm) ||
+             item.createdTime?.toLowerCase().includes(lowerSearchTerm)
+    })
+  }, [searchTerm, arquivos, allArquivos])
+
+  useEffect(() => {
+    if (searchTerm.trim() && allArquivos.length === 0) {
+      fetchAllData()
+    }
+  }, [searchTerm])
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(value)
+    
+    if (!value.trim()) {
+      setAllArquivos([])
+      fetchData()
+    }
+  }
+
   const handleNextPage = () => {
-    if (nextPageToken) {
+    if (nextPageToken && !searchTerm) {
       setPageTokens(prev => [...prev, nextPageToken])
       setCurrentPage(prev => prev + 1)
       fetchData(nextPageToken)
@@ -47,27 +89,31 @@ const Artigos = () => {
   }
 
   const handlePreviousPage = () => {
-    if (pageTokens.length > 0) {
-      const newTokens = [...pageTokens]
-      const previousToken = newTokens[newTokens.length - 2] || null
-      newTokens.pop()
-      setPageTokens(newTokens)
-      setCurrentPage(prev => prev - 1)
-      fetchData(previousToken)
-    } else if (currentPage > 1) {
-      setCurrentPage(1)
-      fetchData()
+    if (!searchTerm) {
+      if (pageTokens.length > 0) {
+        const newTokens = [...pageTokens]
+        const previousToken = newTokens[newTokens.length - 2] || null
+        newTokens.pop()
+        setPageTokens(newTokens)
+        setCurrentPage(prev => prev - 1)
+        fetchData(previousToken)
+      } else if (currentPage > 1) {
+        setCurrentPage(1)
+        fetchData()
+      }
     }
   }
 
   const handleViewFile = (file) => {
     setSelectedFile(file)
     setModalOpen(true)
+    setPdfLoading(true)
   }
 
   const handleCloseModal = () => {
     setModalOpen(false)
     setSelectedFile(null)
+    setPdfLoading(true)
   }
 
   const columns = [
@@ -140,20 +186,27 @@ const Artigos = () => {
     }
   ]
 
+  const displayData = filteredData()
+  const showPagination = !searchTerm && nextPageToken !== null
+
   return (
     <div style={{ padding: "40px 24px" }}>
       <h1>Artigos</h1>
       <Table
         columns={columns}
-        data={arquivos}
-        pagination={true}
-        serverSidePagination={true}
+        data={displayData}
+        pagination={showPagination}
+        serverSidePagination={!searchTerm}
         nextPageToken={nextPageToken}
         previousPageToken={pageTokens.length > 0}
         onNextPage={handleNextPage}
         onPreviousPage={handlePreviousPage}
-        loading={isLoading}
+        loading={isLoading || isSearching}
         currentPage={currentPage}
+        searchable={true}
+        searchPlaceholder="Buscar por nome do arquivo..."
+        searchTerm={searchTerm}
+        onSearchChange={handleSearchChange}
       />
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
@@ -198,7 +251,31 @@ const Artigos = () => {
             </button>
           </div>
 
-          <div style={{ flex: 1, overflow: "hidden" }}>
+          <div style={{ flex: 1, overflow: "hidden", position: "relative" }}>
+            {pdfLoading && (
+              <div style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#ffffff",
+                zIndex: 10
+              }}>
+                <FontAwesomeIcon 
+                  icon={faSpinner} 
+                  spin 
+                  style={{ fontSize: "48px", color: "#79C6C0", marginBottom: "16px" }}
+                />
+                <p style={{ color: "#6b7280", fontSize: "16px", margin: 0 }}>
+                  Carregando documento...
+                </p>
+              </div>
+            )}
             {selectedFile && (
               <iframe
                 src={`${selectedFile.webViewLink.replace('/view?', '/preview?')}`}
@@ -208,6 +285,7 @@ const Artigos = () => {
                   border: "none"
                 }}
                 title={selectedFile.name}
+                onLoad={() => setPdfLoading(false)}
               />
             )}
           </div>
@@ -226,7 +304,7 @@ const Artigos = () => {
               rel="noopener noreferrer"
               style={{
                 padding: "10px 20px",
-                background: "#10b981",
+                background: "#79C6C0",
                 color: "#fff",
                 borderRadius: "8px",
                 textDecoration: "none",

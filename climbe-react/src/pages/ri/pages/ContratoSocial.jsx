@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Table from "../../../components/table/Table"
 import Modal from "../../../components/modal/Modal"
 import { useFetch } from "../../../hooks/useFetch"
@@ -10,14 +10,18 @@ const ContratoSocial = () => {
   const { request, isLoading } = useFetch(prefix)
   
   const [arquivos, setArquivos] = useState([])
+  const [allArquivos, setAllArquivos] = useState([]) 
   const [nextPageToken, setNextPageToken] = useState(null)
   const [pageTokens, setPageTokens] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [isSearching, setIsSearching] = useState(false)
   
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedFile, setSelectedFile] = useState(null)
   const [pdfLoading, setPdfLoading] = useState(true)
 
+  // Buscar dados paginados
   const fetchData = async (pageToken = null) => {
     try {
       const endpoint = pageToken 
@@ -33,12 +37,51 @@ const ContratoSocial = () => {
     }
   }
 
+  const fetchAllData = async () => {
+    try {
+      setIsSearching(true)
+      const result = await request('/api/ri/contratoSocial/getAll')
+      setAllArquivos(result.arquivos)
+    } catch (error) {
+      console.error("Erro ao buscar todos os dados:", error)
+    } finally {
+      setIsSearching(false)
+    }
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
 
+  const filteredData = useCallback(() => {
+    if (!searchTerm.trim()) {
+      return arquivos
+    }
+
+    const lowerSearchTerm = searchTerm.toLowerCase()
+    return allArquivos.filter((item) => {
+      return item.name?.toLowerCase().includes(lowerSearchTerm) ||
+             item.createdTime?.toLowerCase().includes(lowerSearchTerm)
+    })
+  }, [searchTerm, arquivos, allArquivos])
+
+  useEffect(() => {
+    if (searchTerm.trim() && allArquivos.length === 0) {
+      fetchAllData()
+    }
+  }, [searchTerm])
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(value)
+    
+    if (!value.trim()) {
+      setAllArquivos([])
+      fetchData()
+    }
+  }
+
   const handleNextPage = () => {
-    if (nextPageToken) {
+    if (nextPageToken && !searchTerm) {
       setPageTokens(prev => [...prev, nextPageToken])
       setCurrentPage(prev => prev + 1)
       fetchData(nextPageToken)
@@ -46,16 +89,18 @@ const ContratoSocial = () => {
   }
 
   const handlePreviousPage = () => {
-    if (pageTokens.length > 0) {
-      const newTokens = [...pageTokens]
-      const previousToken = newTokens[newTokens.length - 2] || null
-      newTokens.pop()
-      setPageTokens(newTokens)
-      setCurrentPage(prev => prev - 1)
-      fetchData(previousToken)
-    } else if (currentPage > 1) {
-      setCurrentPage(1)
-      fetchData()
+    if (!searchTerm) {
+      if (pageTokens.length > 0) {
+        const newTokens = [...pageTokens]
+        const previousToken = newTokens[newTokens.length - 2] || null
+        newTokens.pop()
+        setPageTokens(newTokens)
+        setCurrentPage(prev => prev - 1)
+        fetchData(previousToken)
+      } else if (currentPage > 1) {
+        setCurrentPage(1)
+        fetchData()
+      }
     }
   }
 
@@ -141,22 +186,28 @@ const ContratoSocial = () => {
     }
   ]
 
+  const displayData = filteredData()
+  const showPagination = !searchTerm
+
+
   return (
     <div style={{ padding: "40px 24px" }}>
       <h1>Contrato Social</h1>
       <Table
         columns={columns}
-        data={arquivos}
-        pagination={true}
-        serverSidePagination={true}
+        data={displayData}
+        pagination={showPagination}
+        serverSidePagination={!searchTerm}
         nextPageToken={nextPageToken}
         previousPageToken={pageTokens.length > 0}
         onNextPage={handleNextPage}
         onPreviousPage={handlePreviousPage}
-        loading={isLoading}
+        loading={isLoading || isSearching}
         currentPage={currentPage}
         searchable={true}
         searchPlaceholder="Buscar por nome do arquivo..."
+        searchTerm={searchTerm}
+        onSearchChange={handleSearchChange}
       />
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
