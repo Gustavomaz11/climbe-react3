@@ -28,7 +28,7 @@ body {
 }
 
 :root {
-  --primary-color: #39c6bb;
+  --primary-color: #79C6C0;
   --primary-gradient: linear-gradient(180deg, #39c6bb 0, #1c867d 64%, #39c6bb 100%);
   --secondary-color: #222;
   --white-color: #f0f0f0;

@@ -12,6 +12,7 @@ const Valuation = lazy(() => import("../pages/servicos/Valuation"));
 const Bpo = lazy(() => import("../pages/servicos/Bpo"));
 const Cfo = lazy(() => import("../pages/servicos/Cfo"));
 const Contabilidade = lazy(() => import("../pages/servicos/Contabilidade"));
+const Mea = lazy(() => import("../pages/servicos/Mea"))
 
 const AppRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AppRoutes = () => {
             <Route path="/servicos/bpo" element={<Bpo />} />
             <Route path="/servicos/cfo" element={<Cfo />} />
             <Route path="/servicos/contabilidade" element={<Contabilidade />} />
+            <Route path="/servicos/mea" element={<Mea />} />
           </Route>
 
           <Route path="*" element={<h1>404</h1>} />
