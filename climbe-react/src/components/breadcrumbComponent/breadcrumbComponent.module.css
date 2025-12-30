@@ -1,13 +1,40 @@
 .breadcrumb {
-  background-color: #9b9b9b;
-  padding: 40px 0;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  padding: 0 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.breadcrumb::before {
+  content: '';
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .breadcrumb_content {
   display: flex;
   flex-direction: column; 
   align-items: center;    
-  gap: 12px;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb_title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
 }
 
 .breadcrumb_line {
@@ -17,5 +44,76 @@
 
 .breadcrumb_line ol {
   margin: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.breadcrumb_line :global(.breadcrumb-item) {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.breadcrumb_line :global(.breadcrumb-item + .breadcrumb-item::before) {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.breadcrumb_item {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.breadcrumb_line :global(.breadcrumb-item) a:hover .breadcrumb_item {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.breadcrumb_item_active {
+  color: #ffffff;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 40px 20px 60px;
+  }
+
+  .breadcrumb_title {
+    font-size: 1.8rem;
+  }
+
+  .breadcrumb_line ol {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .breadcrumb_item,
+  .breadcrumb_item_active {
+    padding: 3px 6px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb_title {
+    font-size: 1.5rem;
+  }
+
+  .breadcrumb_line ol {
+    padding: 8px 16px;
+  }
 }

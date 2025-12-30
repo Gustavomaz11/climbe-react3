@@ -11,7 +11,6 @@ const Kpi = () => {
     { id: 3, value: 0, target: 400, title: "Em Empresas Avaliadas", signal: "+R$", lastSignal: "M" }
   ])
 
-  /* OBSERVA QUANDO A SEÇÃO APARECE */
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
