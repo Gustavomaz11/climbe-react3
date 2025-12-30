@@ -15,7 +15,22 @@ const BreadcrumbComponent = () => {
       cfo: "Diretoria Financeira Sob Demanda (CFO)",
       mea: "Fusões e Aquisições (M&A)",
       contabilidade: "Contabilidade",
-      ri: "Relação com Investidores"
+      ri: "Relação com Investidores",
+      nossoValuation: "Nosso Valuation",
+      acordoSocios: "Acordo de Sócios",
+      contratoSocial: "Contrato Social",
+      educacaoContinua: "Educação Contínua",
+      nps: "NPS",
+      balancoPatrimonial: "Balanço Patrimonial",
+      resultados: "Resultados",
+      planejamentoEstrategico: "Planejamento Estratégico",
+      compliance: "Compliance",
+      atasReunioes: "Atas de Reuniões",
+      relatorios: "Relatórios",
+      artigos: "Artigos",
+      nacionais: "Relatórios Nacionais",
+      internacionais: "Relatórios Internacionais",
+      cripto: "Relatórios Cripto"
     };
     return paths[path] || path;
   };

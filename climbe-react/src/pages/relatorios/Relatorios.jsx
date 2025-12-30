@@ -1,33 +1,19 @@
-import styles from "./ri.module.css"
+import styles from "../ri/ri.module.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  faFileLines,
   faFileContract,
   faBookOpen,
-  faStar,
-  faChartPie,
-  faChartLine,
-  faMoneyBillTrendUp,
-  faScaleBalanced,
-  faComments
 } from "@fortawesome/free-solid-svg-icons"
 import { faFileLines as faFileLinesRegular } from "@fortawesome/free-regular-svg-icons"
 
 const Ri = () => {
     const navigate = useNavigate()
     const [ri] = useState([
-        {id: 1, ri: "Acordo de Sócios", path: "/ri/acordoSocios", icon: faFileLinesRegular},
-        {id: 2, ri: "Contrato Social", path: "/ri/contratoSocial", icon: faFileContract},
-        {id: 3, ri: "Educação Contínua", path: "/ri/educacaoContinua", icon: faBookOpen},
-        {id: 4, ri: "NPS", path: "/ri/nps", icon: faStar},
-        {id: 5, ri: "Balanço Patrimonial", path: "/ri/balancoPatrimonial", icon: faChartPie},
-        {id: 6, ri: "Resultados", path: "/ri/resultados", icon: faChartLine},
-        {id: 7, ri: "Planejamento Estratégico", path: "/ri/planejamentoEstrategico", icon: faChartLine},
-        {id: 8, ri: "Nosso Valuation", path: "/ri/nossoValuation", icon: faMoneyBillTrendUp},
-        {id: 9, ri: "Compliance", path: "/ri/compliance", icon: faScaleBalanced},
-        {id: 10, ri: "Atas de Reuniões", path: "/ri/atasReunioes", icon: faComments},
+        {id: 1, ri: "Relatórios Nacionais", path: "/relatorios/nacionais", icon: faFileLinesRegular},
+        {id: 2, ri: "Relatórios Internacionais", path: "/relatorios/internacionais", icon: faFileContract},
+        {id: 3, ri: "Relatórios Cripto", path: "/relatorios/cripto", icon: faBookOpen}
     ])
 
     return (
@@ -35,8 +21,8 @@ const Ri = () => {
             <section className={styles.card_section}>
                 <div className={styles.container}>
                     <div className={styles.card_header}>
-                        <span className={styles.badge}>Relações com Investidores</span>
-                        <h1 className={styles.title}>Documentos Institucionais</h1>
+                        <span className={styles.badge}>Climbe Investimentos</span>
+                        <h1 className={styles.title}>Relatórios Profissionais</h1>
                     </div>
                     <div className={styles.card_grid}>
                         {ri && ri.map((item) => (
