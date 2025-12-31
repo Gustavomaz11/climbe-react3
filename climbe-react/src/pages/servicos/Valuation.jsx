@@ -15,32 +15,40 @@ const Valuation = () => {
     {id: 4, title: "Atendimento Especializado e Personalizado", text: "Nossa equipe multidisciplinar acompanha todo o processo de avaliação, esclarecendo dúvidas e adaptando a análise às necessidades específicas de cada empresa, sempre com confidencialidade e compromisso técnico."},
   ])
 
-  const [activeTab, setActiveTab] = useState("advisory")
+  const [activeTab, setActiveTab] = useState(1)
   const [necessidade] = useState([
     {id: 1, title: "Balanços Patrimoniais e Demonstrativos de resultados do exercício (DRE)", text: "Dos últimos 5 anos de empresa, se houver."},
     {id: 2, title: "Posição atual de eventuais dívidas ou empréstimos bancários contraídos em nome da empresa ", text: "Saldo devedor, número e valor das parcelas, taxa de juros e etc"},
     {id: 3, title: "Perspectivas Futuras", text: "Planejamento estratégico, preferencialmente."},
     {id: 4, title: "Estrutua de Governança", text: "Contrato social e acordo de sócios."},
-    // {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
-    // {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
   ])
 
   const tabs = [
     {
-      id: "abordagem",
-      label: "Nossa Abordagem",
+      id: 1,
+      label: "1º",
       active: true,
-      content: "Análise profunda da empresa, combinando dados financeiros históricos, projeções futuras e contexto de mercado, garantindo um valuation alinhado à realidade do negócio."
+      content: " Definimos o objetivo do valuation que pode ser: Diagnóstico de saúde financeira da empresa, entrada/saída de sócios; fusão, incorporação ou aquisição de negócios (M&A); Planejamento Sucessório; ou Planejamento Estratégico."
     },
     {
-      id: "objetivos",
-      label: "Objetivos do Projeto",
-      content: "Definir o valor justo da empresa para suportar decisões como venda, entrada de investidores, reorganizações societárias, planejamento sucessório ou captação de recursos."
+      id: 2,
+      label: "2º",
+      content: "Recebemos os demonstrativos financeiros contábeis e gerenciais dos últimos 5 a 10 anos da empresa a ser avaliada."
     },
     {
-      id: "advisory",
-      label: "Assessoria (Advisory)",
-      content: "Acompanhamos o cliente durante todo o processo, explicando premissas, cenários e impactos estratégicos do valuation, indo além do relatório técnico."
+      id: 3,
+      label: "3º",
+      content: "Realizamos a visita de Kick Off na empresa a fim de verificar a operação no seu dia a dia e o nível de fidedignidade da escrituração."
+    },
+    {
+      id: 4,
+      label: "4º",
+      content: "Time multidisciplinar analisa o setor e a empresa produzindo o relatório."
+    },
+    {
+      id: 5,
+      label: "5º",
+      content: "Relatório é entregue e apresentado aos sócios e stakeholders estratégicos definidos pelo contratante."
     }
   ]
   
@@ -104,13 +112,13 @@ const Valuation = () => {
 
             <div className={styles.text_content}>
               <span className={styles.badge}>Como Conduzimos o Valuation</span>
-              <h1 className={styles.title}>Nossa Avaliação de Empresas Permite que Você Tome Decisões com Segurança</h1>
+              {/* <h1 className={styles.title}>Nossa Avaliação de Empresas Permite que Você Tome Decisões com Segurança</h1>
               <p className={styles.description}>
                 Nosso processo de valuation é estruturado para entregar clareza, precisão e respaldo técnico, permitindo que sócios, investidores e gestores tomem decisões estratégicas com total confiança no valor apurado do negócio.
               </p>
               <p className={styles.description}>
                 Atuamos de forma analítica e personalizada, considerando a realidade financeira, operacional e mercadológica de cada empresa.
-              </p>
+              </p> */}
 
               {/* Tabs Section */}
               <div className={styles.tabs_container}>

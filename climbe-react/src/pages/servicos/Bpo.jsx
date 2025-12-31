@@ -15,15 +15,7 @@ const Bpo = () => {
     {id: 4, title: "Equipe Especializada e Continuidade", text: "Atendimento realizado por profissionais qualificados, assegurando continuidade das rotinas financeiras, mesmo em períodos de crescimento, férias ou transições internas."},
   ])
 
-  const [activeTab, setActiveTab] = useState("advisory")
-  const [necessidade] = useState([
-    {id: 1, title: "Balanços Patrimoniais e Demonstrativos de resultados do exercício (DRE)", text: "Dos últimos 5 anos de empresa, se houver."},
-    {id: 2, title: "Posição atual de eventuais dívidas ou empréstimos bancários contraídos em nome da empresa ", text: "Saldo devedor, número e valor das parcelas, taxa de juros e etc"},
-    {id: 3, title: "Indicadores de saúde financeira", text: "Cotejando com a média do setor em que atuam"},
-    {id: 4, title: "Análise", text: "Macroeconômica do setor"},
-    {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
-    {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
-  ])
+  const [activeTab, setActiveTab] = useState("abordagem")
 
   const tabs = [
     {
@@ -53,7 +45,7 @@ const Bpo = () => {
             <span className={styles.badge}>Terceirização de Rotinas Financeiras (BPO)</span>
             <h1 className={styles.title}>BPO Financeiro para Mais Controle, Eficiência e Crescimento</h1>
             <p className={styles.description}>
-              Oferecemos serviços de BPO Financeiro para empresas que buscam organização, previsibilidade e eficiência na gestão das rotinas financeiras, permitindo que gestores foquem no crescimento do negócio.
+              Oferecemos serviços de BPO Financeiro (Business Outsourcing Process) para empresas que buscam organização, previsibilidade e eficiência na gestão das rotinas financeiras, permitindo que gestores foquem no crescimento do negócio.
             </p>
             <p className={styles.description}>
               Atuamos de forma estruturada, integrada e personalizada, assumindo processos financeiros essenciais com segurança, confidencialidade e alto nível técnico.
@@ -135,24 +127,6 @@ const Bpo = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.card_section}>
-        <div className={styles.container}>
-          <div className={styles.card_header}>
-            <span className={styles.badge}>Do que precisamos</span>
-            <h1 className={styles.title}>A Climbe faz análise baseada no seu cenário</h1>
-          </div>
-          <div className={styles.card_grid}>
-            {necessidade && necessidade.map((item, idx) => (
-              <div className={styles.card_item} key={item.id}>
-                <div className={styles.card_number}>{idx + 1}</div>
-                <h4 className={styles.card_title}>{item.title}</h4>
-                <p className={styles.card_text}>{item.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

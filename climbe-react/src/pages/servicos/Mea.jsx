@@ -15,32 +15,54 @@ const Mea = () => {
     {id: 4, title: "Equipe Especializada e Confidencialidade", text: "Atendimento dedicado, com profissionais experientes em M&A, assegurando sigilo absoluto e acompanhamento próximo até o fechamento da operação."},
   ])
 
-  const [activeTab, setActiveTab] = useState("advisory")
+  const [activeTab, setActiveTab] = useState("abordagem")
   const [necessidade] = useState([
     {id: 1, title: "Balanços Patrimoniais e Demonstrativos de resultados do exercício (DRE)", text: "Dos últimos 5 anos de empresa, se houver."},
     {id: 2, title: "Posição atual de eventuais dívidas ou empréstimos bancários contraídos em nome da empresa ", text: "Saldo devedor, número e valor das parcelas, taxa de juros e etc"},
     {id: 3, title: "Indicadores de saúde financeira", text: "Cotejando com a média do setor em que atuam"},
-    {id: 4, title: "Análise", text: "Macroeconômica do setor"},
-    {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
-    {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
+    {id: 4, title: "Análise", text: "Macroeconômica do setor"}
   ])
 
   const tabs = [
     {
       id: "abordagem",
-      label: "Nossa Abordagem",
+      label: "1º",
       active: true,
-      content: "Visão estratégica do negócio, análise profunda da empresa e do mercado, definição de posicionamento e condução estruturada do processo de M&A."
+      content: "Recebemos os demonstrativos financeiros contábeis e gerenciais dos últimos 5 a 10 anos da empresa."
     },
     {
       id: "objetivos",
-      label: "Objetivos do Projeto",
-      content: "Viabilizar operações de compra, venda ou fusão com foco em geração de valor, alinhamento estratégico e segurança para todas as partes envolvidas."
+      label: "2º",
+      content: "Realizamos a visita de Kick Off na empresa a fim de verificar a operação no seu dia a dia e o nível de fidedignidade da escrituração."
     },
     {
-      id: "advisory",
-      label: "Assessoria (Advisory)",
-      content: "Atuação ativa durante todo o processo, incluindo preparação da empresa, negociação, coordenação de due diligence e suporte até o fechamento."
+      id: "multidisciplinar",
+      label: "3º",
+      content: "Time multidisciplinar analisa o setor e a empresa produzindo o valuation diagnóstico."
+    },
+    {
+      id: "stakeholders",
+      label: "4º",
+      content: "Relatório é entregue e apresentado aos sócios e stakeholders estratégicos definidos pelo contratante."
+    },
+    {
+      id: "prospecto",
+      label: "5º",
+      content: "Prospecto comercial é produzido."
+    },
+    {
+      id: "contraparte",
+      label: "6º",
+      content: "Iniciamos busca pela contraparte, que pode ser ponta compradora ou vendedora, para iniciar negociação."
+    },
+    {
+      id: "indices",
+      label: "7º",
+      content: "Apresentamos plano de ação para empresa melhorar seus índices enquanto ocorre processo de negociação."
+    },{
+      id: "juridica",
+      label: "8º",
+      content: "Cuidamos de toda a parte jurídica referente a transição do controle da empresa quando do fechamento da neogiação."
     }
   ]
   

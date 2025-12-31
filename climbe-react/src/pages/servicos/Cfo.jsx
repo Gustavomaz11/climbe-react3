@@ -10,37 +10,45 @@ const Cfo = () => {
 
   const [check] = useState([
     {id: 1, title: "Gestão Financeira Profissional", text: "Estruturação de controles, fluxo de caixa, orçamento e indicadores financeiros, garantindo maior previsibilidade e segurança nas decisões."},
-    {id: 2, title: "Suporte Estratégico à Gestão", text: "Apoio contínuo à diretoria e aos sócios na análise de resultados, definição de estratégias e avaliação de riscos e oportunidades."},
+    {id: 2, title: "Suporte Estratégico à Gestão", text: "Apoio contínuo à diretoria e aos sócios na análise de resultados com equipe multidisciplinar (jurídica, financeira e contábil), definição de estratégias e avaliação de riscos e oportunidades."},
     {id: 3, title: "Modelo Flexível e Sob Medida", text: "Atendimento ajustado à realidade da empresa, com escopo, carga horária e foco definidos conforme o estágio do negócio."},
     {id: 4, title: "Liderança Financeira Especializada", text: "Atuação direta de um CFO experiente, trazendo visão estratégica, organização financeira e melhores práticas de mercado para dentro da empresa."},
   ])
 
-  const [activeTab, setActiveTab] = useState("advisory")
+  const [activeTab, setActiveTab] = useState("abordagem")
   const [necessidade] = useState([
     {id: 1, title: "Balanços Patrimoniais e Demonstrativos de resultados do exercício (DRE)", text: "Dos últimos 5 anos de empresa, se houver."},
     {id: 2, title: "Posição atual de eventuais dívidas ou empréstimos bancários contraídos em nome da empresa ", text: "Saldo devedor, número e valor das parcelas, taxa de juros e etc"},
     {id: 3, title: "Indicadores de saúde financeira", text: "Cotejando com a média do setor em que atuam"},
     {id: 4, title: "Análise", text: "Macroeconômica do setor"},
-    {id: 5, title: "Projeção Futura", text: "Resultados financeiros para os próximos anos."},
-    {id: 6, title: "Valor Econômico da Empresa", text: "Dentro de um intervalo de cenários de negociação (pessimista, neutro e otimista)"},
   ])
 
   const tabs = [
     {
       id: "abordagem",
-      label: "Nossa Abordagem",
+      label: "1º",
       active: true,
-      content: "Atuamos de forma estratégica e prática, estruturando processos financeiros, indicadores de desempenho e rotinas de controle, sempre alinhados aos objetivos da empresa."
+      content: "Compreendemos o objetivo da empresa que pode ser: Expansão dos negócios, consolidação de crescimento anterior ou redução da operação num cenário macro desafiador."
     },
     {
       id: "objetivos",
-      label: "Objetivos do Projeto",
-      content: "Fortalecer a gestão financeira, aumentar a previsibilidade de caixa, apoiar decisões estratégicas e preparar a empresa para crescimento, captação ou reorganização."
+      label: "2º",
+      content: "Realizamos a visita de Kick Off na empresa a fim de verificar a operação no seu dia a dia e o nível de fidedignidade da escrituração."
     },
     {
-      id: "advisory",
-      label: "Assessoria (Advisory)",
-      content: "Atuamos como parceiros da liderança, traduzindo números em insights claros, orientando decisões e apoiando negociações com bancos, investidores e stakeholders."
+      id: "demonstrativos",
+      label: "3º",
+      content: "Recebemos os demonstrativos financeiros contábeis e gerenciais mensalmente."
+    },
+    {
+      id: "multidisciplinar",
+      label: "4º",
+      content: "Time multidisciplinar analisa o setor e a empresa produzindo relatórios periodicamente com projeções de resultado e plano de ação a ser perseguido alinhado ao planejamento estratégico."
+    },
+    {
+      id: "stakeholders",
+      label: "5º",
+      content: "Relatório é entregue e apresentado aos sócios e stakeholders estratégicos definidos pelo contratante nas reuniões mensais de conselho."
     }
   ]
   
