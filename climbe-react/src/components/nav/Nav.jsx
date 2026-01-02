@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./nav.module.css";
 
 const Nav = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [menu] = useState([
     { id: 1, nome: "Relatórios", route: "/relatorios" },
     { id: 2, nome: "Artigos", route: "/artigos" },
@@ -36,22 +36,68 @@ const Nav = () => {
   ]);
 
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
+
+  const handleMouseEnter = (itemId) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setOpenDropdown(itemId);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+    setDropdownTimeout(timeout);
+  };
+
+  const handleNavigate = (route) => {
+    navigate(route);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMobileDropdown = (itemId) => {
+    setOpenDropdown(openDropdown === itemId ? null : itemId);
+  };
 
   return (
     <nav className={styles.nav}>
-      <img src="/logo/logo.png" alt="logo-climbe" className={styles.logo} onClick={() => navigate('/')}/>
+      <img
+        src="/logo/logo.png"
+        alt="logo-climbe"
+        className={styles.logo}
+        onClick={() => handleNavigate("/")}
+      />
 
-      <ul className={styles.ul}>
+      <button
+        className={`${styles.hamburger} ${isMenuOpen ? styles.active : ""}`}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul className={`${styles.ul} ${isMenuOpen ? styles.mobileOpen : ""}`}>
         {menu.map((item) => (
           <li
             key={item.id}
             className={styles.li}
-            onMouseEnter={() => item.children && setOpenDropdown(item.id)}
-            onMouseLeave={() => setOpenDropdown(null)}
+            onMouseEnter={() => item.children && handleMouseEnter(item.id)}
+            onMouseLeave={() => item.children && handleMouseLeave()}
           >
             <span
               className={styles.span}
-              onClick={() => !item.children && navigate(item.route)}
+              onClick={() => {
+                if (item.children) {
+                  toggleMobileDropdown(item.id);
+                } else {
+                  handleNavigate(item.route);
+                }
+              }}
             >
               {item.nome}
               {item.children && <span className={styles.arrow}>▼</span>}
@@ -62,12 +108,14 @@ const Nav = () => {
                 className={`${styles.dropdown} ${
                   openDropdown === item.id ? styles.open : ""
                 }`}
+                onMouseEnter={() => handleMouseEnter(item.id)}
+                onMouseLeave={handleMouseLeave}
               >
                 {item.children.map((child) => (
                   <li
                     key={child.id}
                     className={styles.dropdownItem}
-                    onClick={() => navigate(child.route)}
+                    onClick={() => handleNavigate(child.route)}
                   >
                     {child.nome}
                   </li>
@@ -77,6 +125,13 @@ const Nav = () => {
           </li>
         ))}
       </ul>
+
+      {isMenuOpen && (
+        <div
+          className={styles.overlay}
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
     </nav>
   );
 };

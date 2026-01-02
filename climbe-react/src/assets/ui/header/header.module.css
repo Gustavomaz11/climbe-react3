@@ -17,9 +17,23 @@
     transition: background 0.3s ease;
 }
 
-.backImage > :global(*) {
+/* Nav precisa ficar acima do overlay no desktop */
+.backImage > nav {
+    position: relative;
+    z-index: 10;
+}
+
+/* Aplicar z-index apenas ao hero_content */
+.hero_content {
     position: relative;
     z-index: 2;
+}
+
+/* No mobile, garantir que o hero não sobreponha o menu */
+@media (max-width: 1024px) {
+    .hero_content {
+        z-index: 1;
+    }
 }
 
 .btn_section {
