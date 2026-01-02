@@ -12,8 +12,7 @@ const FormService = () => {
     const [mensagem, setMensagem] = useState("")
     const [auroraError, setAuroraError] = useState(false)
 
-    const { request, isLoading, error, data } = useFetch("http://localhost:3000")
-    // import.meta.env.VITE_PREFIX_API
+    const { request, isLoading, error, data } = useFetch(import.meta.env.VITE_PREFIX_API)
 
     useEffect(() => {
         const canvas = document.createElement('canvas');

@@ -8,8 +8,7 @@ import { showClimbeAlert } from "../../../services/climbeAlert.service";
 import Button from "../../../components/button/Button";
 
 const Footer = () => {
-  const { request, isLoading } = useFetch("http://localhost:3000");
-//   import.meta.env.VITE_PREFIX_API
+  const { request, isLoading } = useFetch(import.meta.env.VITE_PREFIX_API);  
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [hoverApimec, setHoverApimec] = useState(false);
