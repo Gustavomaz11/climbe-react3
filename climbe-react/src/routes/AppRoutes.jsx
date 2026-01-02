@@ -1,20 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Suspense, lazy } from "react"
 
-import Loading from "../components/loading/Loading";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop"
+import Loading from "../components/loading/Loading"
 
-const WhitePage = lazy(() => import("../pages/whitePage/WhitePage"));
-const ServicePage = lazy(() => import("../pages/servicos/ServicePage"));
+const WhitePage = lazy(() => import("../pages/whitePage/WhitePage"))
+const ServicePage = lazy(() => import("../pages/servicos/ServicePage"))
 
-const Home = lazy(() => import("../pages/Home"));
+const Home = lazy(() => import("../pages/Home"))
 
-const Valuation = lazy(() => import("../pages/servicos/Valuation"));
-const Bpo = lazy(() => import("../pages/servicos/Bpo"));
-const Cfo = lazy(() => import("../pages/servicos/Cfo"));
-const Contabilidade = lazy(() => import("../pages/servicos/Contabilidade"));
+const Valuation = lazy(() => import("../pages/servicos/Valuation"))
+const Bpo = lazy(() => import("../pages/servicos/Bpo"))
+const Cfo = lazy(() => import("../pages/servicos/Cfo"))
+const Contabilidade = lazy(() => import("../pages/servicos/Contabilidade"))
 const Mea = lazy(() => import("../pages/servicos/Mea"))
 
-const Ri = lazy(() => import('../pages/ri/Ri'))
+const Ri = lazy(() => import("../pages/ri/Ri"))
 const NossoValuation = lazy(() => import("../pages/ri/pages/NossoValuation"))
 const AcordoSocios = lazy(() => import("../pages/ri/pages/AcordoSocios"))
 const ContratoSocial = lazy(() => import("../pages/ri/pages/ContratoSocial"))
@@ -35,6 +36,9 @@ const RelatoriosCripto = lazy(() => import("../pages/relatorios/RelatoriosCripto
 const AppRoutes = () => {
   return (
     <BrowserRouter>
+    
+      <ScrollToTop />
+
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route element={<WhitePage />}>
@@ -48,31 +52,30 @@ const AppRoutes = () => {
             <Route path="/servicos/contabilidade" element={<Contabilidade />} />
             <Route path="/servicos/mea" element={<Mea />} />
 
-            <Route path="/relatorios" element={<Relatorios />}></Route>
-            <Route path="/relatorios/nacionais" element={<RelatoriosNacionais />}></Route>
-            <Route path="/relatorios/internacionais" element={<RelatoriosInternacionais />}></Route>
-            <Route path="/relatorios/cripto" element={<RelatoriosCripto />}></Route>
-            <Route path="/artigos" element={<Artigos />}></Route>
-          
-            <Route path="/ri" element={<Ri />}></Route>
-            <Route path="/ri/acordoSocios" element={<AcordoSocios />}></Route>
-            <Route path="/ri/contratoSocial" element={<ContratoSocial />}></Route>
-            <Route path="/ri/educacaoContinua" element={<EducacaoContinua />}></Route>
-            <Route path="/ri/nps" element={<Nps />}></Route>
-            <Route path="/ri/resultados" element={<Resultados />}></Route>
-            <Route path="/ri/balancoPatrimonial" element={<BalancoPatrimonial />}></Route>
-            <Route path="/ri/planejamentoEstrategico" element={<PlanejamentoEstrategico />}></Route>
-            <Route path="/ri/nossoValuation" element={<NossoValuation />}></Route>
-            <Route path="/ri/atasReunioes" element={<AtasReunioes />}></Route>
-            <Route path="/ri/compliance" element={<Compliance />}></Route>
-          </Route>
+            <Route path="/relatorios" element={<Relatorios />} />
+            <Route path="/relatorios/nacionais" element={<RelatoriosNacionais />} />
+            <Route path="/relatorios/internacionais" element={<RelatoriosInternacionais />} />
+            <Route path="/relatorios/cripto" element={<RelatoriosCripto />} />
+            <Route path="/artigos" element={<Artigos />} />
 
+            <Route path="/ri" element={<Ri />} />
+            <Route path="/ri/acordoSocios" element={<AcordoSocios />} />
+            <Route path="/ri/contratoSocial" element={<ContratoSocial />} />
+            <Route path="/ri/educacaoContinua" element={<EducacaoContinua />} />
+            <Route path="/ri/nps" element={<Nps />} />
+            <Route path="/ri/resultados" element={<Resultados />} />
+            <Route path="/ri/balancoPatrimonial" element={<BalancoPatrimonial />} />
+            <Route path="/ri/planejamentoEstrategico" element={<PlanejamentoEstrategico />} />
+            <Route path="/ri/nossoValuation" element={<NossoValuation />} />
+            <Route path="/ri/atasReunioes" element={<AtasReunioes />} />
+            <Route path="/ri/compliance" element={<Compliance />} />
+          </Route>
 
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </Suspense>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default AppRoutes;
+export default AppRoutes
