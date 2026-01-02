@@ -1,4 +1,6 @@
 import Aurora from "../Aurora"
+import { showClimbeAlert } from "../../services/climbeAlert.service"
+import { useFetch } from "../../hooks/useFetch"
 import { useState, useEffect } from "react"
 import styles from "./formService.module.css"
 import Button from "../button/Button"
@@ -9,6 +11,9 @@ const FormService = () => {
     const [empresa, setEmpresa] = useState("")
     const [mensagem, setMensagem] = useState("")
     const [auroraError, setAuroraError] = useState(false)
+
+    const { request, isLoading, error, data } = useFetch("http://localhost:3000")
+    // import.meta.env.VITE_PREFIX_API
 
     useEffect(() => {
         const canvas = document.createElement('canvas');
@@ -22,10 +27,38 @@ const FormService = () => {
         }
     }, [])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log({ nome, email, servico, mensagem })
+
+        try {
+            const res = await request("/api/contato", {
+            method: "POST",
+            body: { nome, email, empresa, mensagem }
+            })
+
+            if (res?.success) {
+            showClimbeAlert({
+                title: "Mensagem enviada!",
+                message: "Em breve um especialista da Climbe entrará em contato.",
+                avatar: "/favicon/avatar.png",
+            })
+
+            setNome("")
+            setEmail("")
+            setEmpresa("")
+            setMensagem("")
+            }
+        } catch (err) {
+            showClimbeAlert({
+            title: "Erro ao enviar",
+            message: "Tente novamente em alguns instantes.",
+            actionLabel: "Ok",
+            })
+
+            console.error(err)
+        }
     }
+
 
     return (
         <div className={styles.container}>
@@ -142,7 +175,13 @@ const FormService = () => {
                             />
                         </div>
 
-                        <Button type="button" customClass="primary" txt="Enviar Mensagem"></Button>
+                        <Button
+                            type="submit"
+                            customClass="primary"
+                            disabled={isLoading}
+                            txt={isLoading ? "Enviando..." : "Enviar Mensagem"}
+                        />
+
                     </form>
                 </div>
             </div>
