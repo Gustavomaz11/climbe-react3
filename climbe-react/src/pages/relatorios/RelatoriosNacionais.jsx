@@ -5,6 +5,7 @@ import { useFetch } from "../../hooks/useFetch"
 import { useSortByQuarter } from "../../hooks/useSortByQuarter"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faDownload, faEye, faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { filterPdfs } from "../../shared/lib/files"
 
 const RelatoriosNacionais = () => {
   const prefix = import.meta.env.VITE_PREFIX_API || "http://localhost:3000"
@@ -41,7 +42,7 @@ const RelatoriosNacionais = () => {
 
       const result = await request(endpoint)
 
-      setArquivos(result.arquivos || [])
+      setArquivos(filterPdfs(result.arquivos || []))
       setNextPageToken(result.nextPageToken || null)
 
       // ✅ pega totalPages da API (só vai existir se você estiver retornando isso no backend)
@@ -57,7 +58,7 @@ const RelatoriosNacionais = () => {
     try {
       setIsSearching(true)
       const result = await request("/api/arquivos/nacional/getAll")
-      setAllArquivos(result.arquivos || [])
+      setAllArquivos(filterPdfs(result.arquivos || []))
     } catch (error) {
       console.error("Erro ao buscar todos os dados:", error)
     } finally {

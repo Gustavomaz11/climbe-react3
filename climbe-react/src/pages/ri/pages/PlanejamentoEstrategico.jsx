@@ -4,6 +4,7 @@ import Modal from "../../../components/modal/Modal"
 import { useFetch } from "../../../hooks/useFetch"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faDownload, faEye, faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { filterPdfs } from "../../../shared/lib/files"
 
 const PlanejamentoEstrategico = () => {
   const prefix = import.meta.env.VITE_PREFIX_API || "http://localhost:3000"
@@ -29,7 +30,7 @@ const PlanejamentoEstrategico = () => {
       
       const result = await request(endpoint)
       
-      setArquivos(result.arquivos)
+      setArquivos(filterPdfs(result.arquivos))
       setNextPageToken(result.nextPageToken)
     } catch (error) {
       console.error("Erro ao buscar dados:", error)
@@ -40,7 +41,7 @@ const PlanejamentoEstrategico = () => {
     try {
       setIsSearching(true)
       const result = await request('/api/ri/planejamentoEstrategico/getAll')
-      setAllArquivos(result.arquivos)
+      setAllArquivos(filterPdfs(result.arquivos))
     } catch (error) {
       console.error("Erro ao buscar todos os dados:", error)
     } finally {

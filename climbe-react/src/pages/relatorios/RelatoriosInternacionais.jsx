@@ -4,6 +4,7 @@ import Modal from "../../components/modal/Modal"
 import { useFetch } from "../../hooks/useFetch"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf, faDownload, faEye, faTimes, faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { filterPdfs } from "../../shared/lib/files"
 
 const RelatoriosInternacionais = () => {
   const prefix = import.meta.env.VITE_PREFIX_API || "http://localhost:3000"
@@ -37,7 +38,7 @@ const RelatoriosInternacionais = () => {
 
       const result = await request(endpoint)
 
-      setArquivos(result.arquivos || [])
+      setArquivos(filterPdfs(result.arquivos || []))
       setNextPageToken(result.nextPageToken || null)
 
       // ✅ pega totalPages da API
@@ -53,7 +54,7 @@ const RelatoriosInternacionais = () => {
     try {
       setIsSearching(true)
       const result = await request("/api/arquivos/internacional/getAll")
-      setAllArquivos(result.arquivos || [])
+      setAllArquivos(filterPdfs(result.arquivos || []))
     } catch (error) {
       console.error("Erro ao buscar todos os dados:", error)
     } finally {
