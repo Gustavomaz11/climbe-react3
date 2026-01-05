@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { Suspense, lazy } from "react"
 
 import ScrollToTop from "../components/scrollToTop/ScrollToTop"
@@ -6,6 +6,7 @@ import Loading from "../components/loading/Loading"
 
 const WhitePage = lazy(() => import("../pages/whitePage/WhitePage"))
 const ServicePage = lazy(() => import("../pages/servicos/ServicePage"))
+const ServicesIndex = lazy(() => import("../pages/servicos/ServicesIndex"))
 
 const Home = lazy(() => import("../pages/Home"))
 
@@ -35,8 +36,7 @@ const RelatoriosCripto = lazy(() => import("../pages/relatorios/RelatoriosCripto
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
-    
+    <>
       <ScrollToTop />
 
       <Suspense fallback={<Loading />}>
@@ -46,6 +46,7 @@ const AppRoutes = () => {
           </Route>
 
           <Route element={<ServicePage />}>
+            <Route path="/servicos" element={<ServicesIndex />} />
             <Route path="/servicos/valuation" element={<Valuation />} />
             <Route path="/servicos/bpo" element={<Bpo />} />
             <Route path="/servicos/cfo" element={<Cfo />} />
@@ -74,7 +75,7 @@ const AppRoutes = () => {
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </>
   )
 }
 

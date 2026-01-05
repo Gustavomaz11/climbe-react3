@@ -6,13 +6,13 @@ const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
 
-  const { request, isLoading, error } = useFetch();
+  const { request, isLoading, error } = useFetch(""); // usa caminhos relativos ao public
 
   useEffect(() => {
     const loadTestimonials = async () => {
       try {
         const data = await request("/testimonial.json");
-        setTestimonials(data);
+        setTestimonials(data || []);
       } catch (err) {
         console.error(err);
       }
@@ -26,7 +26,7 @@ const Testimonials = () => {
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 7000); 
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [testimonials]);
@@ -60,9 +60,7 @@ const Testimonials = () => {
             >
               {testimonials.map((item) => (
                 <div key={item.id} className={styles.slide}>
-                  <p className={styles.testimonialText}>
-                    “{item.testimonial}”
-                  </p>
+                  <p className={styles.testimonialText}>{item.testimonial}</p>
 
                   <div className={styles.clientInfo}>
                     <img

@@ -9,7 +9,7 @@ import styles from './team.module.css';
 
 export default function Team() {
   const [member, setMembers] = useState([]);
-  const { request } = useFetch();
+  const { request } = useFetch(""); // usa caminho relativo ao public
 
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
@@ -25,19 +25,13 @@ export default function Team() {
     const req = async () => {
       try {
         const res = await request('/team.json');
-        setMembers(res);
-        console.log('Dados recebidos:', res); 
+        setMembers(res || []);
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }
     };
     req();
   }, [request]);
-
-  
-  useEffect(() => {
-    console.log('Estado member atualizado:', member);
-  }, [member]);
 
   return (
     <section className={styles.team}>

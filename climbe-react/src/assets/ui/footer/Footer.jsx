@@ -1,14 +1,15 @@
-import styles from "./footer.module.css";
-import { useFetch } from "../../../hooks/useFetch";
-import { openLink } from "../../../hooks/useRedirect";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showClimbeAlert } from "../../../services/climbeAlert.service";
+import styles from "./footer.module.css";
 
+import { showClimbeAlert } from "../../../services/climbeAlert.service";
 import Button from "../../../components/button/Button";
+import { openExternalLink } from "../../../shared/lib/navigation";
+import { serviceRoutes, documentRoutes } from "../../../shared/config/services";
+import { useNewsletter } from "../../../features/newsletter/useNewsletter";
 
 const Footer = () => {
-  const { request, isLoading } = useFetch(import.meta.env.VITE_PREFIX_API);  
+  const { send, isLoading } = useNewsletter();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [hoverApimec, setHoverApimec] = useState(false);
@@ -17,29 +18,8 @@ const Footer = () => {
   const [hoverCrcse, setHoverCrcse] = useState(false);
   const [hoverCrcsp, setHoverCrcsp] = useState(false);
 
-  const [services] = useState([
-    {
-      id: 1,
-      service: "Avaliação de Empresas (Valuation)",
-      path: "/servicos/valuation",
-    },
-    { id: 2, service: "Fusões e Aquisições (M&A)", path: "/servicos/mea" },
-    {
-      id: 3,
-      service: "Diretoria Financeira Sob Demanda (CFO)",
-      path: "/servicos/cfo",
-    },
-    { id: 4, service: "Avaliação de Empresas (BPO)", path: "/servicos/bpo" },
-    { id: 5, service: "Contabilidade", path: "/servicos/contabilidade" },
-  ]);
-
-  const [document] = useState([
-    { id: 1, document: "Relatórios", path: "/relatorios" },
-    { id: 2, document: "Artigos", path: "/artigos" },
-  ]);
-
   const handleSubmit = async () => {
-    if (!email) {
+    if (!email || !email.includes("@")) {
       showClimbeAlert({
         title: "E-mail inválido",
         message: "Informe um e-mail válido para continuar.",
@@ -48,10 +28,7 @@ const Footer = () => {
     }
 
     try {
-      const res = await request("/api/newsletter", {
-        method: "POST",
-        body: { email },
-      });
+      const res = await send(email);
 
       if (res?.success) {
         showClimbeAlert({
@@ -73,7 +50,7 @@ const Footer = () => {
 
       showClimbeAlert({
         title: "Erro",
-        message: "Não foi possível cadastrar seu e-mail. Tente novamente.",
+        message: error?.message || "Não foi possível cadastrar seu e-mail. Tente novamente.",
       });
     }
   };
@@ -93,22 +70,30 @@ const Footer = () => {
 
         <section className={styles.services_content}>
           <h4>Serviços</h4>
-          {services &&
-            services.map((item) => (
-              <span key={item.id} onClick={() => navigate(item.path)}>
-                {item.service}
-              </span>
-            ))}
+          {serviceRoutes.map((item) => (
+            <button
+              key={item.id}
+              className={styles.linkButton}
+              type="button"
+              onClick={() => navigate(item.path)}
+            >
+              {item.name}
+            </button>
+          ))}
         </section>
 
         <section className={styles.documents_content}>
           <h4>Conteúdo</h4>
-          {document &&
-            document.map((item) => (
-              <span key={item.id} onClick={() => navigate(item.path)}>
-                {item.document}
-              </span>
-            ))}
+          {documentRoutes.map((item) => (
+            <button
+              key={item.id}
+              className={styles.linkButton}
+              type="button"
+              onClick={() => navigate(item.path)}
+            >
+              {item.name}
+            </button>
+          ))}
         </section>
 
         <section className={styles.news}>
@@ -132,13 +117,13 @@ const Footer = () => {
 
       <div className={styles.credoras}>
         <h2>
-          Nossas empresas seguem a legislação das seguintes entidades reguladoras e
-          autorreguladoras do mercado:
+          Nossas empresas seguem a legislação das seguintes entidades reguladoras
+          e autorreguladoras do mercado:
         </h2>
         <div className={styles.credoras_content}>
           <img
             onClick={() =>
-              openLink(
+              openExternalLink(
                 "https://www.apimecbrasil.com.br/autorregulacao/analistas-de-valores-mobiliarios-pessoa-juridica/"
               )
             }
@@ -153,7 +138,7 @@ const Footer = () => {
           />
           <img
             onClick={() =>
-              openLink(
+              openExternalLink(
                 "https://www.anbima.com.br/pt_br/institucional/perfil-da-instituicao/instituicao/350da4e3-cda2-406b-b478-939ba6929b0a/perfil/viggo-asset-management-ltda.htm"
               )
             }
@@ -167,7 +152,7 @@ const Footer = () => {
             onMouseLeave={() => setHoverAnbima(false)}
           />
           <img
-            onClick={() => openLink("https://sistemas.cvm.gov.br/")}
+            onClick={() => openExternalLink("https://sistemas.cvm.gov.br/")}
             src={
               hoverCvm ? "/credoras/cvm.png" : "/credoras/pretoCinza/cvm.png"
             }
@@ -176,7 +161,7 @@ const Footer = () => {
             onMouseLeave={() => setHoverCvm(false)}
           />
           <img
-            onClick={() => openLink("https://crcse.org.br/")}
+            onClick={() => openExternalLink("https://crcse.org.br/")}
             src={
               hoverCrcse
                 ? "/credoras/crcse.png"
@@ -188,7 +173,7 @@ const Footer = () => {
           />
           <img
             onClick={() =>
-              openLink("https://online.crcsp.org.br/portal/index.asp")
+              openExternalLink("https://online.crcsp.org.br/portal/index.asp")
             }
             src={
               hoverCrcsp
@@ -208,7 +193,7 @@ const Footer = () => {
           reservados. Criado por:{" "}
           <span
             onClick={() =>
-              openLink(
+              openExternalLink(
                 "https://www.linkedin.com/in/gustavo-trindade-9183072ab/"
               )
             }

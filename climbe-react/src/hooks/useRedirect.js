@@ -1,7 +1,12 @@
+import { openExternalLink, openWhatsapp } from "../shared/lib/navigation"
+
+// Mantido por compatibilidade, mas preferir openWhatsapp/openExternalLink direto.
 export function useRedirect() {
-    window.open("https://api.whatsapp.com/send/?phone=5579991269378&text=Ol%C3%A1%2C+gostaria+de+saber+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0", '_blank')
+  openWhatsapp()
 }
 
 export function openLink(url) {
-    window.open(url, "_blank")
+  openExternalLink(url)
 }
+
+export { openExternalLink, openWhatsapp }

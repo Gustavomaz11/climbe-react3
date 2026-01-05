@@ -1,12 +1,11 @@
 import AppRoutes from "./routes/AppRoutes"
-import { Toaster } from "react-hot-toast"
+import AppProviders from "./app/providers/AppProviders"
 
 function App() {
   return (
-    <>
+    <AppProviders>
       <AppRoutes />
-      <Toaster position="top-right" />
-    </>
+    </AppProviders>
   )
 }
 
