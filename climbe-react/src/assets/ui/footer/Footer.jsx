@@ -132,7 +132,7 @@ const Footer = () => {
 
       <div className={styles.credoras}>
         <h2>
-          Nossa empresa segue a legislação das seguintes entidades reguladoras e
+          Nossas empresas seguem a legislação das seguintes entidades reguladoras e
           autorreguladoras do mercado:
         </h2>
         <div className={styles.credoras_content}>
