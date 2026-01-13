@@ -5,22 +5,24 @@
         "position": "Sócio Fundador",
         "path_photo": "/colaboradores/andersonSales.png",
         "experience": [
-            {"id": 1, "item": "Gestor, Analista e Consultor Credenciado CVM"},
-            {"id": 2, "item": "Certificado CGA, CGE, e CNPI Pleno"},
-            {"id": 3, "item": "Graduado em Matemática"},
-            {"id": 4, "item": "Pós Graduado em Gestão de Cooperativas de Crédito"},
-            {"id": 5, "item": "Pós Graduado em Gestão Fiscal e Planejamento Tributário"}
+            {"id": 1, "item": " Diretor de Gestão da Viggo Asset Managemten (2024-Atual)"},
+            {"id": 2, "item": "Gestor, Analista e Consultor Credenciado CVM"},
+            {"id": 3, "item": "Certificado CGA, CGE, e CNPI Pleno"},
+            {"id": 4, "item": "Graduado em Matemática"},
+            {"id": 5, "item": "Pós Graduado em Gestão de Cooperativas de Crédito"},
+            {"id": 6, "item": "Pós Graduado em Gestão Fiscal e Planejamento Tributário"}
         ]
     },
     {
         "id": 2,
         "member": "Felipe Trindade",
-        "position": "CEO Climbe",
+        "position": "CEO Climbe Holding",
         "path_photo": "/colaboradores/felipeTrindade.png",
         "experience": [
-            {"id": 1, "item": "Formado em Economia - Universidade Federal de Sergipe (UFS)"},
-            {"id": 2, "item": "MBA em Finanças pela Fundação Getúlio Vargas (FGV)"},
-            {"id": 3, "item": "Atua há 9 anos no Mercado Financeiro"}
+            {"id": 1, "item": " CEO da Climbe Holding (2025-Atual)"},
+            {"id": 2, "item": "Formado em Economia - Universidade Federal de Sergipe (UFS)"},
+            {"id": 3, "item": "MBA em Finanças pela Fundação Getúlio Vargas (FGV)"},
+            {"id": 4, "item": "Atua há 9 anos no Mercado Financeiro"}
         ]
     },
     {
@@ -75,9 +77,10 @@
         "position": "Consultor Comercial",
         "path_photo": "/colaboradores/marcioSouza.png",
         "experience": [
-            {"id": 1, "item": "Formado em Segurança Pública - Universidade UNOPAR"},
+            {"id": 1, "item": "Diretor Comercial da Climbe Holding (2025-Atual)"},
+            {"id": 2, "item": "Formado em Segurança Pública - Universidade UNOPAR"},
             {"id": 3, "item": "MBA em Finanças Corporativas - Galícia Educação"},
-            {"id": 4, "item": "Consultor Financeiro Empresarial - Impactus Consultorias (2020 - Atual)"},
+            {"id": 4, "item": "Consultor Financeiro Empresarial - Impactus Consultorias (2020 - 2024)"},
             {"id": 5, "item": "Administrador - Impactus Consultorias (2021 - 2024)"}
         ]
     },
