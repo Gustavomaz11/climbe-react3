@@ -184,6 +184,21 @@ const Footer = () => {
             onMouseEnter={() => setHoverCrcsp(true)}
             onMouseLeave={() => setHoverCrcsp(false)}
           />
+
+          <img
+            onClick={() =>
+              openExternalLink("https://zapsign.com.br/?utm_source=sustentabilidade")
+            }
+            src={
+              hoverCrcsp
+                ? "/credoras/pretoCinza/zapsign-white.png"
+                : "/credoras/pretoCinza/zapsign-white.png"
+            }
+            alt="zapsign"
+            style={{width: "auto", height: "100px"}}
+            onMouseEnter={() => setHoverCrcsp(true)}
+            onMouseLeave={() => setHoverCrcsp(false)}
+          />
         </div>
       </div>
 
