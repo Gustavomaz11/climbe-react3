@@ -170,6 +170,7 @@ const Footer = () => {
             alt="crcse"
             onMouseEnter={() => setHoverCrcse(true)}
             onMouseLeave={() => setHoverCrcse(false)}
+            className={styles.crcse}
           />
           <img
             onClick={() =>
