@@ -68,6 +68,26 @@
     letter-spacing: 0.3px;
 }
 
+.footer_contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.footer_contact p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+}
+
+.footer_contact strong {
+    color: #fff;
+    font-weight: 600;
+}
+
 .services_content,
 .documents_content,
 .news {
@@ -281,6 +301,15 @@
     .footer_header p {
         font-size: 0.85rem;
         line-height: 1.7;
+    }
+
+    .footer_contact {
+        align-items: center;
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        max-width: 320px;
+        padding: 1rem 0 0;
+        width: 100%;
     }
 
     .services_content,

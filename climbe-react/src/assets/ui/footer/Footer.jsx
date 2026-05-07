@@ -17,6 +17,12 @@ const Footer = () => {
   const [hoverAnbima, setHoverAnbima] = useState(false);
   const [hoverCrcse, setHoverCrcse] = useState(false);
   const [hoverCrcsp, setHoverCrcsp] = useState(false);
+  const [metaData] = useState({
+    contato: {
+      cnpj: "35.913.707/0001-73",
+      telefone: "(14) 9 9756-2004",
+    },
+  });
 
   const handleSubmit = async () => {
     if (!email || !email.includes("@")) {
@@ -66,6 +72,14 @@ const Footer = () => {
             alcançar seus objetivos financeiros. Entre em contato conosco e
             descubra como podemos fazer a diferença no seu futuro.
           </p>
+          <div className={styles.footer_contact}>
+            <p>
+              <strong>CNPJ:</strong> {metaData.contato.cnpj}
+            </p>
+            <p>
+              <strong>Telefone para Contato:</strong> {metaData.contato.telefone}
+            </p>
+          </div>
         </section>
 
         <section className={styles.services_content}>
